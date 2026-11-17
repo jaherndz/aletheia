@@ -116,6 +116,11 @@ source builds both byte-identical ([ROMS.md](ROMS.md)).
 | `PM_LANG_JA(english, japanese)` | any other value that differs only in Japanese |
 | `PM_LANG_HALF_WIDTH_DIGITS` | the digit width of word-set numbers: 0 in Japanese, 1 otherwise |
 
+In the PC build with the run-time language, `PM_SRC_LINE` and `PM_LANG_HALF_WIDTH_DIGITS` read
+`g_pm_language` like `PM_LANGUAGE_IS`; the DS builds keep them constants. `PM_LANG_JA` and the
+`#if LANGUAGE == LANGUAGE_JAPANESE` branches are still fixed at build time, so the run-time
+build does not play the Japanese cartridges yet.
+
 Data that only Japanese has (the file-name and message strings of failed checks, some tables)
 is declared as `<prefix>_ja_<address>` with its Japanese Black address, under
 `#if LANGUAGE == LANGUAGE_JAPANESE`. The link places these names in both Japanese targets.

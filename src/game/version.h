@@ -97,8 +97,10 @@ extern int g_pm_language;
 
 /* Printed numbers: Japanese uses full-width digits by default, the other languages half-width
  * (the isHalfWidth argument of WORDSET_SetSlotNumber).  A site that always uses one width keeps
- * its literal. */
-#if LANGUAGE == LANGUAGE_JAPANESE
+ * its literal.  A PC build with the run-time language reads it from g_pm_language. */
+#if PM_LANGUAGE_RUNTIME
+#define PM_LANG_HALF_WIDTH_DIGITS (!PM_LANGUAGE_IS(LANGUAGE_JAPANESE))
+#elif LANGUAGE == LANGUAGE_JAPANESE
 #define PM_LANG_HALF_WIDTH_DIGITS 0
 #else
 #define PM_LANG_HALF_WIDTH_DIGITS 1
@@ -106,8 +108,11 @@ extern int g_pm_language;
 
 /* A source line number the code passes on (heap allocations, state changes, failed checks).
  * The Japanese cartridge was built from an earlier revision of the same files, so its line
- * numbers are smaller: each site names both. */
-#if LANGUAGE == LANGUAGE_JAPANESE
+ * numbers are smaller: each site names both.  A PC build with the run-time language reads it
+ * from g_pm_language. */
+#if PM_LANGUAGE_RUNTIME
+#define PM_SRC_LINE(english, japanese) (PM_LANGUAGE_IS(LANGUAGE_JAPANESE) ? (japanese) : (english))
+#elif LANGUAGE == LANGUAGE_JAPANESE
 #define PM_SRC_LINE(english, japanese) (japanese)
 #else
 #define PM_SRC_LINE(english, japanese) (english)

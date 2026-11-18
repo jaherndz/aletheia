@@ -134,8 +134,10 @@ extern int g_pm_language;
 #endif
 
 /* Any other value that is different in the Japanese cartridge only: the Japanese value, else
- * the English one. */
-#if LANGUAGE == LANGUAGE_JAPANESE
+ * the English one.  A PC build with the run-time language reads it from g_pm_language. */
+#if PM_LANGUAGE_RUNTIME
+#define PM_LANG_JA(english, japanese) (PM_LANGUAGE_IS(LANGUAGE_JAPANESE) ? (japanese) : (english))
+#elif LANGUAGE == LANGUAGE_JAPANESE
 #define PM_LANG_JA(english, japanese) (japanese)
 #else
 #define PM_LANG_JA(english, japanese) (english)

@@ -895,7 +895,7 @@ selected:
         break;
     case 6:
         if (MONOLITH_TOOL_LIST_IsMessageDone(args->work, work) == 1) {
-            if (work->yesNoMenu != 0) GF_PANIC_Fail(PM_LANG_JA((const char *)d_021BABFC, str_ja_021BAB68), PM_SRC_LINE(0, 0x1F7), PM_LANG_JA((const char *)d_021BABFC, str_ja_021BAB7C));
+            if (work->yesNoMenu != 0) GF_PANIC_Fail(PM_SRC_STR((const char *)d_021BABFC, str_ja_021BAB68), PM_SRC_LINE(0, 0x1F7), PM_SRC_STR((const char *)d_021BABFC, str_ja_021BAB7C));
             work->yesNoMenu = MONOLITH_TOOL_OpenTaskMenu(args->work, work->taskMenuUnit, 0x61);
             ++*state;
         }
@@ -1074,7 +1074,7 @@ void MONOLITH_TOOL_LIST_DrawTitle(MonolithToolProcArgs *args, MonolithListWork *
 void MONOLITH_TOOL_LIST_ShowMessage(MonolithListWork *work, MonolithToolWork *toolWork, u32 msgId)
 {
     if (work->messagePrinter != 0)
-        GF_PANIC_Fail(PM_LANG_JA(d_021BABFC, str_ja_021BAB68), PM_SRC_LINE(0, 0x35E), PM_LANG_JA(d_021BABFC, str_ja_021BAB98));
+        GF_PANIC_Fail(PM_SRC_STR(d_021BABFC, str_ja_021BAB68), PM_SRC_LINE(0, 0x35E), PM_SRC_STR(d_021BABFC, str_ja_021BAB98));
     GF_FONT_SetTextColor(1, 2, 0xf);
     work->messageText = MSGDATA_AllocString(toolWork->msgBank[3], msgId);
     work->messagePrinter = PRINTSYS_PrintStream(work->messageWindow, 0, 0, work->messageText, toolWork->font, MSG_SPEED_GetWait(), toolWork->taskList, 0xa, 0x61, 0xf);
@@ -1087,7 +1087,7 @@ void MONOLITH_TOOL_LIST_ShowFormattedMessage(MonolithListWork *work, MonolithToo
     struct Strbuf *format;
 
     if (work->messagePrinter != 0)
-        GF_PANIC_Fail(PM_LANG_JA(d_021BABFC, str_ja_021BAB68), PM_SRC_LINE(0, 0x37C), PM_LANG_JA(d_021BABFC, str_ja_021BAB98));
+        GF_PANIC_Fail(PM_SRC_STR(d_021BABFC, str_ja_021BAB68), PM_SRC_LINE(0, 0x37C), PM_SRC_STR(d_021BABFC, str_ja_021BAB98));
     GF_FONT_SetTextColor(1, 2, 0xf);
     format = MSGDATA_AllocString(toolWork->msgBank[3], msgId);
     work->messageText = STRBUF_Create(0x100, 0x61);
@@ -1112,7 +1112,7 @@ void MONOLITH_TOOL_LIST_HideMessage(MonolithListWork *work)
 
     bitmap = (struct Bitmap *)BMP_WIN_GetBmp(work->messageWindow);
     if (work->messagePrinter == 0)
-        GF_PANIC_Fail(PM_LANG_JA(d_021BABFC, str_ja_021BAB68), PM_SRC_LINE(0, 0x3A8), PM_LANG_JA(d_021BABFC, str_ja_021BABB4));
+        GF_PANIC_Fail(PM_SRC_STR(d_021BABFC, str_ja_021BAB68), PM_SRC_LINE(0, 0x3A8), PM_SRC_STR(d_021BABFC, str_ja_021BABB4));
     PRINTSYS_PrintStreamDelete(work->messagePrinter);
     work->messagePrinter = 0;
     STRBUF_Delete(work->messageText);

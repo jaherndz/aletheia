@@ -585,7 +585,7 @@ void *BR_UTIL_Create(unsigned short plane,unsigned a,unsigned short b,unsigned s
 {
     char *p;
     void *bmp;
-    p=GFL_HEAP_Alloc(heap,sizeof(BrUtilTextWin),0,PM_LANG_JA(d_02200D5C, str_ja_02200F58),PM_SRC_LINE(0x5f, 0x4f));
+    p=GFL_HEAP_Alloc(heap,sizeof(BrUtilTextWin),0,PM_SRC_STR(d_02200D5C, str_ja_02200F58),PM_SRC_LINE(0x5f, 0x4f));
     MI_CpuFill8(p,0,sizeof(BrUtilTextWin));
     ((BrUtilTextWin *)p)->clearColor=0;
     ((BrUtilTextWin *)p)->owner=owner;
@@ -663,7 +663,7 @@ BrUtilListMenu *BR_UTIL_CreateListMenu(const BrUtilConfig *cfg,u16 heap)
     void *font;
     int i;
     size=cfg->count*4+0x8c;
-    p=GFL_HEAP_Alloc(heap,size,0,PM_LANG_JA(d_02200D5C, str_ja_02200F58),PM_SRC_LINE(0x1a1, 0x191));
+    p=GFL_HEAP_Alloc(heap,size,0,PM_SRC_STR(d_02200D5C, str_ja_02200F58),PM_SRC_LINE(0x1a1, 0x191));
     MI_CpuFill8(p,0,size);
     p->cfg=*cfg;
     p->selected=0;p->last=cfg->count;
@@ -675,13 +675,13 @@ BrUtilListMenu *BR_UTIL_CreateListMenu(const BrUtilConfig *cfg,u16 heap)
     if(cfg->selection) {p->start=cfg->selection[0];p->index=cfg->selection[1];}
     if(p->cfg.mode==0) {
         for(i=0;i<p->visible;i++) {
-            if(i>=10) GF_PANIC_Fail(PM_LANG_JA(d_02200D68, str_ja_02200F58), PM_SRC_LINE(0, 0x1A7), PM_LANG_JA(d_02200D68, str_ja_02200F64));
+            if(i>=10) GF_PANIC_Fail(PM_SRC_STR(d_02200D68, str_ja_02200F58), PM_SRC_LINE(0, 0x1A7), PM_SRC_STR(d_02200D68, str_ja_02200F64));
             p->areas[i].left=p->cfg.x*8;
             p->areas[i].top=(p->cfg.y+i*p->cfg.spacing)*8;
             p->areas[i].right=(p->cfg.x+p->cfg.width)*8;
             p->areas[i].bottom=(p->cfg.y+(i+1)*p->cfg.spacing)*8;
         }
-        if(i>=10) GF_PANIC_Fail(PM_LANG_JA(d_02200D68, str_ja_02200F58),PM_SRC_LINE(0, 0x1AD),PM_LANG_JA(d_02200D68, str_ja_02200F64));
+        if(i>=10) GF_PANIC_Fail(PM_SRC_STR(d_02200D68, str_ja_02200F58),PM_SRC_LINE(0, 0x1AD),PM_SRC_STR(d_02200D68, str_ja_02200F64));
         p->areas[i].left=255;p->areas[i].top=255;p->areas[i].right=255;p->areas[i].bottom=255;
         p->scrollRows=BR_UTIL_ScrollRows;p->needsScroll=BR_UTIL_NeedsScroll;p->handleTouch=BR_UTIL_HandleRowTouch;
     } else if(p->cfg.mode==1) {
@@ -695,11 +695,11 @@ BrUtilListMenu *BR_UTIL_CreateListMenu(const BrUtilConfig *cfg,u16 heap)
     MI_CpuFill8((void *)&arrow,0,8);
     if(cfg->bg<4) {
         BR_RES_LoadSprite((struct BrRes *)p->cfg.resources,7,heap);
-        if(!BR_RES_GetSprite((struct BrRes *)p->cfg.resources,7,(void *)&arrows)) GF_PANIC_Fail(PM_LANG_JA((const char *)d_02200D68, str_ja_02200F58), PM_SRC_LINE(0, 0x1D8), PM_LANG_JA((const char *)d_02200D68, str_ja_02200F7C));
+        if(!BR_RES_GetSprite((struct BrRes *)p->cfg.resources,7,(void *)&arrows)) GF_PANIC_Fail(PM_SRC_STR((const char *)d_02200D68, str_ja_02200F58), PM_SRC_LINE(0, 0x1D8), PM_SRC_STR((const char *)d_02200D68, str_ja_02200F7C));
         mode=0;
     } else {
         BR_RES_LoadSprite((struct BrRes *)p->cfg.resources,8,heap);
-        if(!BR_RES_GetSprite((struct BrRes *)p->cfg.resources,8,(void *)&arrows)) GF_PANIC_Fail(PM_LANG_JA((const char *)d_02200D68, str_ja_02200F58), PM_SRC_LINE(0, 0x1DF), PM_LANG_JA((const char *)d_02200D68, str_ja_02200F7C));
+        if(!BR_RES_GetSprite((struct BrRes *)p->cfg.resources,8,(void *)&arrows)) GF_PANIC_Fail(PM_SRC_STR((const char *)d_02200D68, str_ja_02200F58), PM_SRC_LINE(0, 0x1DF), PM_SRC_STR((const char *)d_02200D68, str_ja_02200F7C));
         mode=1;
     }
     arrow.x=128;arrow.flag=0;
@@ -716,7 +716,7 @@ BrUtilListMenu *BR_UTIL_CreateListMenu(const BrUtilConfig *cfg,u16 heap)
     CLACT_SetActorDrawEnable(p->handles[0],0);
     MI_CpuFill8((void *)&mark,0,8);
     mark.y=72;mark.id=5;mark.flag=0;
-    if(!BR_RES_GetSprite((struct BrRes *)p->cfg.resources,6,(void *)&marks)) GF_PANIC_Fail(PM_LANG_JA((const char *)d_02200D68, str_ja_02200F58), PM_SRC_LINE(0, 0x208), PM_LANG_JA((const char *)d_02200D68, str_ja_02200F7C));
+    if(!BR_RES_GetSprite((struct BrRes *)p->cfg.resources,6,(void *)&marks)) GF_PANIC_Fail(PM_SRC_STR((const char *)d_02200D68, str_ja_02200F58), PM_SRC_LINE(0, 0x208), PM_SRC_STR((const char *)d_02200D68, str_ja_02200F7C));
     for(i=2;i<4;i++) {
         mark.x=i==2?24:232;
         p->handles[i]=CLACT_CreateActor((struct Unit *)((void *)p->cfg.manager),marks.y,marks.z,marks.x,(const struct ActorInitParam *)&mark,1,heap);
@@ -798,14 +798,14 @@ int BR_UTIL_GetListMenuHitId(char *p)
 
 void BR_UTIL_SetListItemBitmap(u8 *p, u16 i, struct Bmp *v)
 {
-    if(i>=((BrUtilListMenu *)p)->cfg.count)GF_PANIC_Fail(PM_LANG_JA(d_02200D68, str_ja_02200F58), PM_SRC_LINE(0, 0x2F4), PM_LANG_JA(d_02200D68, str_ja_02200F80));
-    if(((BrUtilListMenu *)p)->cfg.list[i].text!=0)GF_PANIC_Fail(PM_LANG_JA(d_02200D68, str_ja_02200F58),PM_SRC_LINE(0, 0x2F5),PM_LANG_JA(d_02200D68, str_ja_02200F9C));
+    if(i>=((BrUtilListMenu *)p)->cfg.count)GF_PANIC_Fail(PM_SRC_STR(d_02200D68, str_ja_02200F58), PM_SRC_LINE(0, 0x2F4), PM_SRC_STR(d_02200D68, str_ja_02200F80));
+    if(((BrUtilListMenu *)p)->cfg.list[i].text!=0)GF_PANIC_Fail(PM_SRC_STR(d_02200D68, str_ja_02200F58),PM_SRC_LINE(0, 0x2F5),PM_SRC_STR(d_02200D68, str_ja_02200F9C));
     ((BrUtilListMenu *)p)->bitmaps[i]=v;
 }
 
 struct Bmp *BR_UTIL_GetListItemBitmap(u8 *p, u16 i)
 {
-    if(i>=((BrUtilListMenu *)p)->cfg.count)GF_PANIC_Fail(PM_LANG_JA(d_02200D68, str_ja_02200F58),PM_SRC_LINE(0, 0x305),PM_LANG_JA(d_02200D68, str_ja_02200FC4));
+    if(i>=((BrUtilListMenu *)p)->cfg.count)GF_PANIC_Fail(PM_SRC_STR(d_02200D68, str_ja_02200F58),PM_SRC_LINE(0, 0x305),PM_SRC_STR(d_02200D68, str_ja_02200FC4));
     return (struct Bmp *)((BrUtilListMenu *)p)->bitmaps[i];
 }
 
@@ -819,7 +819,7 @@ int BR_UTIL_GetListMenuField(char *p,unsigned field)
     case 1:return ((BrUtilListMenu *)p)->start;
     case 2:return ((BrUtilListMenu *)p)->dragDir;
     case 3:return ((BrUtilListMenu *)p)->cfg.count;
-    default:GF_PANIC_Fail(PM_LANG_JA(d_02200D68, str_ja_02200F58), PM_SRC_LINE(0, 0x324), PM_LANG_JA(d_02200D68, str_ja_02200FE0));return 0;
+    default:GF_PANIC_Fail(PM_SRC_STR(d_02200D68, str_ja_02200F58), PM_SRC_LINE(0, 0x324), PM_SRC_STR(d_02200D68, str_ja_02200FE0));return 0;
     }
 }
 
@@ -1266,7 +1266,7 @@ struct BrProfileScreen *BR_UTIL_CreateProfileScreen(void *prof,struct BrRes *q,v
     u32 k2,k1,k3,k4;
     void *text;
     u32 A,B,C,D;
-    p=GFL_HEAP_Alloc(heap,sizeof(*p),0,PM_LANG_JA(d_02200D5C, str_ja_02200F58),PM_SRC_LINE(0x541,0x52e));
+    p=GFL_HEAP_Alloc(heap,sizeof(*p),0,PM_SRC_STR(d_02200D5C, str_ja_02200F58),PM_SRC_LINE(0x541,0x52e));
     MI_CpuFill8(p,0,sizeof(*p));
     p->res=q;
     font=(void *)BR_RES_GetFont((struct BrRes *)q);
@@ -1461,7 +1461,7 @@ int BR_UTIL_MainProfileScreen(struct BrProfileScreen *p)
 struct BrUtilTask *BR_UTIL_CreateTask(void *payload,BrUtilTaskStep step,int heap)
 {
     struct BrUtilTask *p;
-    p=GFL_HEAP_Alloc(heap,sizeof(struct BrUtilTask),0,PM_LANG_JA(d_02200D5C, str_ja_02200F58),PM_SRC_LINE(0x6a2, 0x67f));
+    p=GFL_HEAP_Alloc(heap,sizeof(struct BrUtilTask),0,PM_SRC_STR(d_02200D5C, str_ja_02200F58),PM_SRC_LINE(0x6a2, 0x67f));
     MI_CpuFill8(p,0,sizeof(struct BrUtilTask));
     p->payload=payload;
     BR_UTIL_SetTaskStep(p,step);
@@ -1511,13 +1511,13 @@ char *BR_UTIL_CreateHandles(void *owner, struct BrRes *resources, int index, int
     unsigned short res;
     char *p;
     int i;
-    p=GFL_HEAP_Alloc(heap,sizeof(BrUtilEffect),0,PM_LANG_JA(d_02200D5C, str_ja_02200F58),PM_SRC_LINE(0x7CA, 0x7A7));
+    p=GFL_HEAP_Alloc(heap,sizeof(BrUtilEffect),0,PM_SRC_STR(d_02200D5C, str_ja_02200F58),PM_SRC_LINE(0x7CA, 0x7A7));
     MI_CpuFill8(p,0,sizeof(BrUtilEffect));
     ((BrUtilEffect *)p)->resources=resources;((BrUtilEffect *)p)->index=index;
     ((BrUtilEffect *)p)->task=BR_UTIL_CreateTask(p,BR_UTIL_EffectIdle,heap);
     BR_RES_LoadSprite((struct BrRes *)(((BrUtilEffect *)p)->resources),index+9,heap);
     MI_CpuFill8((void *)&pair,0,8);
-    if(!BR_RES_GetSprite((struct BrRes *)(((BrUtilEffect *)p)->resources),index+9,(void *)&triple)) GF_PANIC_Fail(PM_LANG_JA((const char *)d_02200D68, str_ja_02200F58),PM_SRC_LINE(0, 0x7BB),PM_LANG_JA((const char *)d_02200D68, str_ja_02200F7C));
+    if(!BR_RES_GetSprite((struct BrRes *)(((BrUtilEffect *)p)->resources),index+9,(void *)&triple)) GF_PANIC_Fail(PM_SRC_STR((const char *)d_02200D68, str_ja_02200F58),PM_SRC_LINE(0, 0x7BB),PM_SRC_STR((const char *)d_02200D68, str_ja_02200F7C));
     i=0;
     res=index;
     for(;i<12;i++) {

@@ -259,7 +259,7 @@ int BR_MAIN_RunSceneStep(BrSceneManager *mgr)
 void BR_MAIN_FreeSceneManager(BrSceneManager *mgr)
 {
     if (mgr->sceneWork != 0)
-        GF_PANIC_Fail(PM_LANG_JA((void *)0x0220b2e0, str_ja_0220B0E0), PM_SRC_LINE(0, 0x1BD), PM_LANG_JA((void *)0x0220b2e0, str_ja_0220B0EC));
+        GF_PANIC_Fail(PM_SRC_STR((void *)0x0220b2e0, str_ja_0220B0E0), PM_SRC_LINE(0, 0x1BD), PM_SRC_STR((void *)0x0220b2e0, str_ja_0220B0EC));
     PROCSYS_Delete(mgr->procSys);
     MI_CpuFill8(mgr, 0, sizeof(BrSceneManager));
 }
@@ -269,7 +269,7 @@ void BR_MAIN_SetDesiredScene(BrMainWork *work, u32 scene) { work->sceneManager.d
 BrListSceneWork *BR_MAIN_CreateListScene(unsigned short heapId, BrMainWork *work, int mode)
 {
     BrListSceneWork *list;
-    list = GFL_HEAP_Alloc(heapId, sizeof(BrListSceneWork), 0, PM_LANG_JA(d_0220B2E4, str_ja_0220B0E0), 0x1e7);
+    list = GFL_HEAP_Alloc(heapId, sizeof(BrListSceneWork), 0, PM_SRC_STR(d_0220B2E4, str_ja_0220B0E0), 0x1e7);
     MI_CpuFill8(list, 0, sizeof(BrListSceneWork));
     list->launch = work->launch;
     list->data = &work->data;
@@ -292,7 +292,7 @@ void BR_MAIN_DeleteListScene(BrListSceneWork *listWork, BrMainWork *work)
 
 void *BR_MAIN_CreateReplayScene(u16 heapId, BrMainWork *work)
 {
-    struct BattleSetupParam *setup = GFL_HEAP_Alloc(heapId, sizeof(struct BattleSetupParam), 0, PM_LANG_JA(d_0220B2E4, str_ja_0220B0E0), 542);
+    struct BattleSetupParam *setup = GFL_HEAP_Alloc(heapId, sizeof(struct BattleSetupParam), 0, PM_SRC_STR(d_0220B2E4, str_ja_0220B0E0), 542);
     MI_CpuFill8(setup, 0, sizeof(struct BattleSetupParam));
     BTL_SETUP_InitWithSlots(setup, work->launch->gameData, heapId);
     BATTLE_REC_LoadToolOverlay();

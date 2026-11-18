@@ -104,8 +104,8 @@ void DRAW_SYSTEM_AdvanceIndex(DrawCanvas *canvas, u16 *idx);
 DrawCanvas *DRAW_SYSTEM_CreateCanvas(DrawCanvasParams *params)
 {
     DrawCanvas *canvas;
-    canvas = GFL_HEAP_Alloc(params->heapId, sizeof(DrawCanvas), 1, PM_LANG_JA(d_021C71D0, str_ja_021C7070), 64);
-    canvas->strokes = GFL_NET_AllocAligned(params->heapId, params->capacity * 8, PM_LANG_JA(d_021C71D0, str_ja_021C7070), 65);
+    canvas = GFL_HEAP_Alloc(params->heapId, sizeof(DrawCanvas), 1, PM_SRC_STR(d_021C71D0, str_ja_021C7070), 64);
+    canvas->strokes = GFL_NET_AllocAligned(params->heapId, params->capacity * 8, PM_SRC_STR(d_021C71D0, str_ja_021C7070), 65);
     canvas->kind = params->kind;
     canvas->capacity = params->capacity;
     canvas->clipX0 = params->clipX0;

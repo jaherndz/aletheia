@@ -687,7 +687,7 @@ void EVENT_COMM_COMMON_PrintMsg(EventCommMsgBox *msgBox, u16 msgId)
 void EVENT_COMM_COMMON_ClearPrintWin(EventCommMsgBox *msgBox)
 {
     if (msgBox->printer == 0) {
-        GF_PANIC_Fail(PM_LANG_JA(sEmptyTextMsgBox, str_ja_02183A8C), PM_SRC_LINE(0, 0xB0), PM_LANG_JA(sEmptyTextMsgBox, str_ja_02183AA0));
+        GF_PANIC_Fail(PM_SRC_STR(sEmptyTextMsgBox, str_ja_02183A8C), PM_SRC_LINE(0, 0xB0), PM_SRC_STR(sEmptyTextMsgBox, str_ja_02183AA0));
     }
     FIELD_MSGBG_ClearSysWin(msgBox->printer);
     msgBox->printing = 0;
@@ -747,13 +747,13 @@ void EVENT_COMM_COMMON_DeleteChoice(EventCommMsgBox *msgBox)
 void EVENT_COMM_COMMON_StartChoice(EventCommMsgBox *msgBox, struct GameSystem *gameSystem)
 {
     GAMESYSTEM_GetFieldMap(gameSystem);
-    if (msgBox->choiceHandle != 0 || msgBox->msgData == 0) GF_PANIC_Fail(PM_LANG_JA(sEmptyTextMsgBox, str_ja_02183A8C), PM_SRC_LINE(0, 0x18E), PM_LANG_JA(sEmptyTextMsgBox, str_ja_02183ABC));
+    if (msgBox->choiceHandle != 0 || msgBox->msgData == 0) GF_PANIC_Fail(PM_SRC_STR(sEmptyTextMsgBox, str_ja_02183A8C), PM_SRC_LINE(0, 0x18E), PM_SRC_STR(sEmptyTextMsgBox, str_ja_02183ABC));
     msgBox->choiceHandle = FIELD_MSGBG_CreateYesNoMenu(msgBox->fieldMsgbg, 0);
 }
 
 int EVENT_COMM_COMMON_PollChoice(EventCommMsgBox *msgBox)
 {
-    if (msgBox->choiceHandle == 0) GF_PANIC_Fail(PM_LANG_JA(sEmptyTextMsgBox, str_ja_02183A8C), PM_SRC_LINE(0, 0x1A9), PM_LANG_JA(sEmptyTextMsgBox, str_ja_02183AF0));
+    if (msgBox->choiceHandle == 0) GF_PANIC_Fail(PM_SRC_STR(sEmptyTextMsgBox, str_ja_02183A8C), PM_SRC_LINE(0, 0x1A9), PM_SRC_STR(sEmptyTextMsgBox, str_ja_02183AF0));
     return FIELD_MSGBG_YesNoMenuMain(msgBox->choiceHandle);
 }
 
@@ -761,7 +761,7 @@ void EVENT_COMM_COMMON_SetupListWindowB(EventCommMsgBox *msgBox, struct GameSyst
 {
     GAMESYSTEM_GetFieldMap(gameSystem);
     if (msgBox->listWindowB != 0) {
-        GF_PANIC_Fail(PM_LANG_JA(sEmptyTextMsgBox, str_ja_02183A8C), PM_SRC_LINE(0, 0x1C3), PM_LANG_JA(sEmptyTextMsgBox, str_ja_02183B0C));
+        GF_PANIC_Fail(PM_SRC_STR(sEmptyTextMsgBox, str_ja_02183A8C), PM_SRC_LINE(0, 0x1C3), PM_SRC_STR(sEmptyTextMsgBox, str_ja_02183B0C));
     }
     msgBox->listWindowB = FIELD_MSGBG_CreateMsgWin(msgBox->fieldMsgbg, msgBox->msgData, (u16)x, (u16)y, width, height);
 }

@@ -1018,7 +1018,7 @@ void MONOLITH_TOOL_MENU_FreeWindow(MonolithToolMenu *screen)
 void MONOLITH_TOOL_MENU_ShowMessage(MonolithToolMenu *screen, MonolithToolWork *work, unsigned msgId)
 {
     if (screen->messageBox != 0) {
-        GF_PANIC_Fail(PM_LANG_JA(d_021BABF8, str_ja_021BAB1C), PM_SRC_LINE(0, 0x296), PM_LANG_JA(d_021BABF8, str_ja_021BAB30));
+        GF_PANIC_Fail(PM_SRC_STR(d_021BABF8, str_ja_021BAB1C), PM_SRC_LINE(0, 0x296), PM_SRC_STR(d_021BABF8, str_ja_021BAB30));
     }
     GF_FONT_SetTextColor(1, 2, 0xf);
     screen->messageText = MSGDATA_AllocString(work->msgBank[3], msgId);
@@ -1037,7 +1037,7 @@ void MONOLITH_TOOL_MENU_HideMessage(MonolithToolMenu *screen)
     struct Bmp *r = BMP_WIN_GetBmp(screen->window);
 
     if (screen->messageBox == 0) {
-        GF_PANIC_Fail(PM_LANG_JA(d_021BABF8, str_ja_021BAB1C), PM_SRC_LINE(0, 0x2BC), PM_LANG_JA(d_021BABF8, str_ja_021BAB4C));
+        GF_PANIC_Fail(PM_SRC_STR(d_021BABF8, str_ja_021BAB1C), PM_SRC_LINE(0, 0x2BC), PM_SRC_STR(d_021BABF8, str_ja_021BAB4C));
     }
     PRINTSYS_PrintStreamDelete(screen->messageBox);
     screen->messageBox = 0;

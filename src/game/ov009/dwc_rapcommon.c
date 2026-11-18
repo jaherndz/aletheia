@@ -187,15 +187,15 @@ void DWC_RAPCOMMON_CreateSubHeapUnlimited(int ownerId, int size, int heapId)
 void DWC_RAPCOMMON_CreateSubHeap(u32 ownerId, u32 size, u32 minRequestSize, u32 heapId)
 {
     if (_pRapHeap == 0) {
-        GF_PANIC_Fail(PM_LANG_JA(_sAssertEmptyCommon, str_ja_021A1A70), PM_SRC_LINE(0, 0x5F), PM_LANG_JA(_sAssertEmptyCommon, str_ja_021A1A80));
+        GF_PANIC_Fail(PM_SRC_STR(_sAssertEmptyCommon, str_ja_021A1A70), PM_SRC_LINE(0, 0x5F), PM_SRC_STR(_sAssertEmptyCommon, str_ja_021A1A80));
     }
     if (_pRapHeap->subMem != 0) {
-        GF_PANIC_Fail(PM_LANG_JA(_sAssertEmptyCommon, str_ja_021A1A70), PM_SRC_LINE(0, 0x60), PM_LANG_JA(_sAssertEmptyCommon, str_ja_021A1A94));
+        GF_PANIC_Fail(PM_SRC_STR(_sAssertEmptyCommon, str_ja_021A1A70), PM_SRC_LINE(0, 0x60), PM_SRC_STR(_sAssertEmptyCommon, str_ja_021A1A94));
     }
     if (_pRapHeap->subHeap != 0) {
-        GF_PANIC_Fail(PM_LANG_JA(_sAssertEmptyCommon, str_ja_021A1A70), PM_SRC_LINE(0, 0x61), PM_LANG_JA(_sAssertEmptyCommon, str_ja_021A1AB4));
+        GF_PANIC_Fail(PM_SRC_STR(_sAssertEmptyCommon, str_ja_021A1A70), PM_SRC_LINE(0, 0x61), PM_SRC_STR(_sAssertEmptyCommon, str_ja_021A1AB4));
     }
-    _pRapHeap->subMem = GFL_HEAP_Alloc(heapId, size - 0x80, 0, PM_LANG_JA(_sDwcRapCommonFile, str_ja_021A1A70), 0x62);
+    _pRapHeap->subMem = GFL_HEAP_Alloc(heapId, size - 0x80, 0, PM_SRC_STR(_sDwcRapCommonFile, str_ja_021A1A70), 0x62);
     _pRapHeap->subHeap = NNS_FndCreateExpHeapEx((void *)(((uptr)_pRapHeap->subMem + 0x1f) & ~0x1f), size - 0xc0, 0);
     _pRapHeap->subOwnerId = ownerId;
     NNSi_FndSetAllocModeBit((char *)_pRapHeap->subHeap, 1);
@@ -206,7 +206,7 @@ void DWC_RAPCOMMON_CreateSubHeap(u32 ownerId, u32 size, u32 minRequestSize, u32 
 void DWC_RAPCOMMON_DestroySubHeap(void)
 {
     if (_pRapHeap == 0) {
-        GF_PANIC_Fail(PM_LANG_JA(_sAssertEmptyCommon, str_ja_021A1A70), PM_SRC_LINE(0, 0x74), PM_LANG_JA(_sAssertEmptyCommon, str_ja_021A1AD8));
+        GF_PANIC_Fail(PM_SRC_STR(_sAssertEmptyCommon, str_ja_021A1A70), PM_SRC_LINE(0, 0x74), PM_SRC_STR(_sAssertEmptyCommon, str_ja_021A1AD8));
     }
     if (_pRapHeap->subLiveBlocks != 0) {
         GFL_NET_STATE_SetError(0, 0, 0, DWC_RAP_RESULT_FATAL);
@@ -293,10 +293,10 @@ void DWC_RAPCOMMON_Free(int ownerId, void *block, unsigned long unused)
 void DWC_RAPCOMMON_CreateHeap(u32 heapId, u32 size)
 {
     if (_pRapHeap != 0) {
-        GF_PANIC_Fail(PM_LANG_JA(_sAssertEmptyCommon, str_ja_021A1A70), PM_SRC_LINE(0, 0x140), PM_LANG_JA(_sAssertEmptyCommon, str_ja_021A1AE4));
+        GF_PANIC_Fail(PM_SRC_STR(_sAssertEmptyCommon, str_ja_021A1A70), PM_SRC_LINE(0, 0x140), PM_SRC_STR(_sAssertEmptyCommon, str_ja_021A1AE4));
     }
-    _pRapHeap = (DwcRapHeap *)GFL_HEAP_Alloc(0, sizeof(*_pRapHeap), 1, PM_LANG_JA(_sDwcRapCommonFile, str_ja_021A1A70), PM_SRC_LINE(0x14C, 0x142));
-    _pRapHeap->mainMem = GFL_HEAP_Alloc(heapId, size - 0x80, 0, PM_LANG_JA(_sDwcRapCommonFile, str_ja_021A1A70), PM_SRC_LINE(0x14D, 0x143));
+    _pRapHeap = (DwcRapHeap *)GFL_HEAP_Alloc(0, sizeof(*_pRapHeap), 1, PM_SRC_STR(_sDwcRapCommonFile, str_ja_021A1A70), PM_SRC_LINE(0x14C, 0x142));
+    _pRapHeap->mainMem = GFL_HEAP_Alloc(heapId, size - 0x80, 0, PM_SRC_STR(_sDwcRapCommonFile, str_ja_021A1A70), PM_SRC_LINE(0x14D, 0x143));
     _pRapHeap->mainHeap = NNS_FndCreateExpHeapEx((void *)(((uptr)_pRapHeap->mainMem + 0x1f) & ~0x1f), size - 0xc0, 0);
     _pRapHeap->tag = 0;
 }
@@ -304,7 +304,7 @@ void DWC_RAPCOMMON_CreateHeap(u32 heapId, u32 size)
 void DWC_RAPCOMMON_DestroyHeap(void)
 {
     if (_pRapHeap == 0) {
-        GF_PANIC_Fail(PM_LANG_JA(_sAssertEmptyCommon, str_ja_021A1A70), PM_SRC_LINE(0, 0x154), PM_LANG_JA(_sAssertEmptyCommon, str_ja_021A1AD8));
+        GF_PANIC_Fail(PM_SRC_STR(_sAssertEmptyCommon, str_ja_021A1A70), PM_SRC_LINE(0, 0x154), PM_SRC_STR(_sAssertEmptyCommon, str_ja_021A1AD8));
     }
     if (_pRapHeap->allocFailed == 1 || _pRapHeap->subMem != 0) {
         DWC_RAPCOMMON_ReleaseSubHeap();

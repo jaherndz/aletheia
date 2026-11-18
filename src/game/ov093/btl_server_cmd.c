@@ -680,7 +680,7 @@ extern s32 gBtlServerCmdArgBuffer[];
 void BTL_SERVER_CMD_WriteU8(BtlServerCmdQueue *queue, u8 value)
 {
     if (queue->writePos >= BTL_SERVER_CMD_QUEUE_SIZE) {
-        GF_PANIC_Fail(PM_LANG_JA(gBtlEmptyString, str_ja_021F37E4), PM_SRC_LINE(0, 0x17E), PM_LANG_JA(gBtlEmptyString, str_ja_021F37F8));
+        GF_PANIC_Fail(PM_SRC_STR(gBtlEmptyString, str_ja_021F37E4), PM_SRC_LINE(0, 0x17E), PM_SRC_STR(gBtlEmptyString, str_ja_021F37F8));
     }
     queue->data[queue->writePos++] = value;
 }
@@ -697,7 +697,7 @@ u8 BTL_SERVER_CMD_ReadU8(BtlServerCmdQueue *queue)
 void BTL_SERVER_CMD_WriteU16(BtlServerCmdQueue *queue, u16 value)
 {
     if (queue->writePos >= BTL_SERVER_CMD_QUEUE_SIZE - 1) {
-        GF_PANIC_Fail(PM_LANG_JA(gBtlEmptyString, str_ja_021F37E4), PM_SRC_LINE(0, 0x188), PM_LANG_JA(gBtlEmptyString, str_ja_021F3820));
+        GF_PANIC_Fail(PM_SRC_STR(gBtlEmptyString, str_ja_021F37E4), PM_SRC_LINE(0, 0x188), PM_SRC_STR(gBtlEmptyString, str_ja_021F3820));
     }
     queue->data[queue->writePos++] = value >> 8;
     queue->data[queue->writePos++] = value;
@@ -727,7 +727,7 @@ u32 BTL_SERVER_CMD_ReadU16(BtlServerCmdQueue *queue)
 void BTL_SERVER_CMD_WriteU24(BtlServerCmdQueue *queue, u32 value)
 {
     if (queue->writePos >= BTL_SERVER_CMD_QUEUE_SIZE - 2) {
-        GF_PANIC_Fail(PM_LANG_JA(gBtlEmptyString, str_ja_021F37E4), PM_SRC_LINE(0, 0x197), PM_LANG_JA(gBtlEmptyString, str_ja_021F384C));
+        GF_PANIC_Fail(PM_SRC_STR(gBtlEmptyString, str_ja_021F37E4), PM_SRC_LINE(0, 0x197), PM_SRC_STR(gBtlEmptyString, str_ja_021F384C));
     }
     queue->data[queue->writePos++] = value >> 16;
     queue->data[queue->writePos++] = value >> 8;
@@ -749,7 +749,7 @@ u32 BTL_SERVER_CMD_ReadU24(BtlServerCmdQueue *queue)
 void BTL_SERVER_CMD_WriteU32(BtlServerCmdQueue *queue, u32 value)
 {
     if (queue->writePos >= BTL_SERVER_CMD_QUEUE_SIZE - 3) {
-        GF_PANIC_Fail(PM_LANG_JA(gBtlEmptyString, str_ja_021F37E4), PM_SRC_LINE(0, 0x1A7), PM_LANG_JA(gBtlEmptyString, str_ja_021F3878));
+        GF_PANIC_Fail(PM_SRC_STR(gBtlEmptyString, str_ja_021F37E4), PM_SRC_LINE(0, 0x1A7), PM_SRC_STR(gBtlEmptyString, str_ja_021F3878));
     }
     queue->data[queue->writePos++] = value >> 24;
     queue->data[queue->writePos++] = value >> 16;

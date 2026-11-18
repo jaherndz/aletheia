@@ -495,7 +495,7 @@ void MB_PARENT_SYS_Init(int a, int b)
     zero->words[3] = 0;
     zero->words[4] = 0;
     gMbChildStageMasks = *zero;
-    gMbParentSys.mbWork = GFL_NET_AllocAligned(93, 45312, PM_LANG_JA(d_021F6E1C, str_ja_021F6D40), 158);
+    gMbParentSys.mbWork = GFL_NET_AllocAligned(93, 45312, PM_SRC_STR(d_021F6E1C, str_ja_021F6D40), 158);
     if (MB_Init((void *)gMbParentSys.mbWork, (const MBUserInfo *)&userInfo, a, b, 1))
 #if LANGUAGE == LANGUAGE_JAPANESE
         GF_PANIC_FailPrintf(str_ja_021F6D40, 0xA3, str_ja_021F6D48);
@@ -541,7 +541,7 @@ int MB_PARENT_SYS_LoadFileImage(MbRegistryBlock *registry)
             return 0;
     }
     if (MB_GetSegmentLength(fp)) {
-        gMbParentSys.fileBuffer = GFL_HEAP_Alloc(93, 65536, 1, PM_LANG_JA(d_021F6E1C, str_ja_021F6D40), 287);
+        gMbParentSys.fileBuffer = GFL_HEAP_Alloc(93, 65536, 1, PM_SRC_STR(d_021F6E1C, str_ja_021F6D40), 287);
         if (gMbParentSys.fileBuffer) {
             if (MB_ReadSegment((FSFile *)fp, (void *)gMbParentSys.fileBuffer, 65536)) {
                 if (MB_RegisterFile((struct MBGameRegistry *)registry, (void *)gMbParentSys.fileBuffer))

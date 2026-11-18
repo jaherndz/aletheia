@@ -310,7 +310,7 @@ UnionSubdispWork *UNION_SUBDISP_Create(struct GameSystem *gameSystem)
     u32 winOut;
 
     gameComm = GAMESYSTEM_GetGameComm(gameSystem);
-    work = GFL_HEAP_Alloc(UNION_SUBDISP_HEAP_ID, sizeof(*work), 1, PM_LANG_JA(sUnionSubdispFileName, str_ja_021F0FE0), 0x10F);
+    work = GFL_HEAP_Alloc(UNION_SUBDISP_HEAP_ID, sizeof(*work), 1, PM_SRC_STR(sUnionSubdispFileName, str_ja_021F0FE0), 0x10F);
     work->gameSystem = gameSystem;
     archive = ARC_TOOL_CreateHandle(0x59, UNION_SUBDISP_HEAP_ID);
     UNION_SUBDISP_CreateSystems(work);

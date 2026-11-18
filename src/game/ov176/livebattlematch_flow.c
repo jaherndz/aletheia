@@ -292,7 +292,7 @@ struct LiveBattleMatchWork *LIVEBATTLEMATCH_FLOW_Create(LiveBattleMatchInit *src
     int size=0x109;
     struct LiveBattleMatchWork *p;
     size=0x1dc;
-    p=GFL_HEAP_Alloc(heap,size,0,PM_LANG_JA(d_0217E600, str_ja_0217E59C),0x109);
+    p=GFL_HEAP_Alloc(heap,size,0,PM_SRC_STR(d_0217E600, str_ja_0217E59C),0x109);
     MI_CpuFill8(p,0,size);
     *(LiveBattleMatchInit *)&p->initMode=*src;
     p->heap=heap;
@@ -361,7 +361,7 @@ void LIVEBATTLEMATCH_FLOW_SelectPhase(WifibattlematchCallback *p, int *state, vo
         break;
     case 2: WIFIBATTLEMATCH_UTIL_SetCallback(p, LIVEBATTLEMATCH_FLOW_Card); break;
     case 3: WIFIBATTLEMATCH_UTIL_SetCallback(p, LIVEBATTLEMATCH_FLOW_Sub); break;
-    default: GF_PANIC_Fail(PM_LANG_JA(d_0217E618, str_ja_0217E59C),PM_SRC_LINE(0, 0x1c8),PM_LANG_JA(d_0217E618, str_ja_0217E5B4)); break;
+    default: GF_PANIC_Fail(PM_SRC_STR(d_0217E618, str_ja_0217E59C),PM_SRC_LINE(0, 0x1c8),PM_SRC_STR(d_0217E618, str_ja_0217E5B4)); break;
     }
 }
 

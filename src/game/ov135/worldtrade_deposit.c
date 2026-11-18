@@ -641,7 +641,7 @@ void WORLDTRADE_DEPOSIT_DeleteActors(WorldtradeWork *p)
 void WORLDTRADE_DEPOSIT_CreateStrings(WorldtradeWork *p)
 {
     p->str = STRBUF_Create(0xB4, 0x48);
-    (*(void **)&p->st) = GFL_HEAP_Alloc(0x48, sizeof(DepositState), 0, PM_LANG_JA(g_02203C00, str_ja_02203D54), PM_SRC_LINE(0x2B4, 0x2B2));
+    (*(void **)&p->st) = GFL_HEAP_Alloc(0x48, sizeof(DepositState), 0, PM_SRC_STR(g_02203C00, str_ja_02203D54), PM_SRC_LINE(0x2B4, 0x2B2));
     MIi_CpuClearFast(0, (void *)p->st, sizeof(DepositState));
     ((DepositState *)p->st)->speciesList = WORLDTRADE_DEPOSIT_LoadSpeciesList(0x48, 0, &((DepositState *)p->st)->speciesCount);
     ((DepositState *)p->st)->speciesFlags = WORLDTRADE_DEPOSIT_CreateSpeciesFlagTable(0x48);
@@ -1116,7 +1116,7 @@ u16 *WORLDTRADE_DEPOSIT_LoadSpeciesList(u32 heap, u32 unused, u32 *count)
 void WORLDTRADE_DEPOSIT_GetSpeciesRange(u32 kind, int *start, int *end)
 {
     if (kind >= PM_LANG_JA(0x1B, 0x2D)) {
-        GF_PANIC_Fail(PM_LANG_JA((void *)0x02203C18, str_ja_02203D54), PM_SRC_LINE(0, 0x74A), PM_LANG_JA((void *)0x02203C18, str_ja_02203D6C));
+        GF_PANIC_Fail(PM_SRC_STR((void *)0x02203C18, str_ja_02203D54), PM_SRC_LINE(0, 0x74A), PM_SRC_STR((void *)0x02203C18, str_ja_02203D6C));
     }
     *start = tbl_0220307C[kind];
     *end = tbl_0220307C[kind + 1];
@@ -1130,7 +1130,7 @@ u8 *WORLDTRADE_DEPOSIT_CreateSpeciesFlagTable(u32 id)
     u16 *tbl;
     u32 n;
 
-    buf = GFL_HEAP_Alloc(0x48, SPECIES_LAST + 1, 0, PM_LANG_JA((const char *)g_02203C00, str_ja_02203D54), PM_SRC_LINE(0x796, 0x762));
+    buf = GFL_HEAP_Alloc(0x48, SPECIES_LAST + 1, 0, PM_SRC_STR((const char *)g_02203C00, str_ja_02203D54), PM_SRC_LINE(0x796, 0x762));
     MIi_CpuClearFast(0, buf, SPECIES_LAST + 1);
     tbl = (u16 *)ARC_UTIL_LoadMemberWithSize(0x62, 4, 0, (u16)id, &size);
     n = size / 2;
@@ -1243,10 +1243,10 @@ void WORLDTRADE_DEPOSIT_GetLevelBracket(u8 *dst, int index, int kind)
     const WorldtradeTableRow *table;
     if (kind == 0) {
         table = tbl_0220301C;
-        if (index >= 12) GF_PANIC_Fail(PM_LANG_JA(str_02203C18, str_ja_02203D54), PM_SRC_LINE(0, 0x92C), PM_LANG_JA(str_02203C18, str_ja_02203D90));
+        if (index >= 12) GF_PANIC_Fail(PM_SRC_STR(str_02203C18, str_ja_02203D54), PM_SRC_LINE(0, 0x92C), PM_SRC_STR(str_02203C18, str_ja_02203D90));
     } else {
         table = tbl_02202FC4;
-        if (index >= 11) GF_PANIC_Fail(PM_LANG_JA(str_02203C18, str_ja_02203D54), PM_SRC_LINE(0, 0x930), PM_LANG_JA(str_02203C18, str_ja_02203DAC));
+        if (index >= 11) GF_PANIC_Fail(PM_SRC_STR(str_02203C18, str_ja_02203D54), PM_SRC_LINE(0, 0x930), PM_SRC_STR(str_02203C18, str_ja_02203DAC));
     }
     dst[3] = table[index].x;
     dst[4] = table[index].y;

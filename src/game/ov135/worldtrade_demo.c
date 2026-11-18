@@ -161,7 +161,7 @@ int WORLDTRADE_DEMO_Init(WorldtradeWork *p)
     void *tmpl;
 
     WORLDTRADE_ExitPlanes(p);
-    p->req = GFL_HEAP_Alloc(0x48, sizeof(*p->req), 0, PM_LANG_JA(str_02203B6C, str_ja_02203CA4), 0x5E);
+    p->req = GFL_HEAP_Alloc(0x48, sizeof(*p->req), 0, PM_SRC_STR(str_02203B6C, str_ja_02203CA4), 0x5E);
     MI_CpuFill8(p->req, 0, sizeof(*p->req));
     d = p->req;
     p->monCopy = WORLDTRADE_ADAPTER_AllocHeapBuf(0x48);
@@ -202,7 +202,7 @@ int WORLDTRADE_DEMO_Init(WorldtradeWork *p)
         tmpl = d_021E75CC;
         break;
     default:
-        GF_PANIC_Fail(PM_LANG_JA((void *)0x02203B80, str_ja_02203CA4), PM_SRC_LINE(0, 0xB1), PM_LANG_JA((void *)0x02203B80, str_ja_02203CB8));
+        GF_PANIC_Fail(PM_SRC_STR((void *)0x02203B80, str_ja_02203CA4), PM_SRC_LINE(0, 0xB1), PM_SRC_STR((void *)0x02203B80, str_ja_02203CB8));
         break;
     }
     PROCSYS_Push(p->procSys, (uptr)ov119_id, tmpl, p->req);
@@ -246,7 +246,7 @@ int WORLDTRADE_DEMO_EvolveStep(WorldtradeWork *p)
                     GFL_HEAP_Free(p->req);
                     p->req = 0;
                 }
-                p->req = GFL_HEAP_Alloc(0x48, sizeof(WorldtradeEvoReq), 0, PM_LANG_JA(str_02203B6C, str_ja_02203CA4), 0xEB);
+                p->req = GFL_HEAP_Alloc(0x48, sizeof(WorldtradeEvoReq), 0, PM_SRC_STR(str_02203B6C, str_ja_02203CA4), 0xEB);
                 MI_CpuFill8(p->req, 0, sizeof(WorldtradeEvoReq));
                 w = p->req;
                 w->evoGameData = GAMESYSTEM_GetGameData((struct GameSystem *)p->ctx->gameData);
@@ -286,7 +286,7 @@ int WORLDTRADE_DEMO_EvolveStep(WorldtradeWork *p)
                         GFL_HEAP_Free(p->req);
                         p->req = 0;
                     }
-                    p->req = GFL_HEAP_Alloc(0x48, sizeof(WorldtradeEvoReq), 0, PM_LANG_JA(str_02203B6C, str_ja_02203CA4), 0x130);
+                    p->req = GFL_HEAP_Alloc(0x48, sizeof(WorldtradeEvoReq), 0, PM_SRC_STR(str_02203B6C, str_ja_02203CA4), 0x130);
                     MI_CpuFill8(p->req, 0, sizeof(WorldtradeEvoReq));
                     w = p->req;
                     w->evoGameData = GAMESYSTEM_GetGameData((struct GameSystem *)p->ctx->gameData);

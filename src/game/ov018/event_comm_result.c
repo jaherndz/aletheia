@@ -684,7 +684,7 @@ int EVENT_COMM_COMMON_MissionResultEventMain(struct GameEvent *event, int *seq, 
             result = INTRUDE_COMM_GetSessionResult(&sys->session);
             battleRec = GAME_DATA_GetLastBattleRecSlot(gameData);
             if (result == 0) {
-                GF_PANIC_Fail(PM_LANG_JA(sEmptyTextResult, str_ja_02183C10), PM_SRC_LINE(0, 0xB7), PM_LANG_JA(sEmptyTextResult, str_ja_02183C24));
+                GF_PANIC_Fail(PM_SRC_STR(sEmptyTextResult, str_ja_02183C10), PM_SRC_LINE(0, 0xB7), PM_SRC_STR(sEmptyTextResult, str_ja_02183C24));
             }
             work->result = *result;
             work->missionKind = result->record.head.kind;

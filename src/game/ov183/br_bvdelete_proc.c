@@ -650,7 +650,7 @@ int BR_CODEIN_SaveCreate(struct Proc *obj,int unused,struct BrProcArgRecord *arg
 {
     struct CodeinSaveWork *p;
     int i;
-    if (arg->mode>=4) GF_PANIC_Fail(PM_LANG_JA(d_021E39B4, str_ja_021E3A40), PM_SRC_LINE(0, 0x8E), PM_LANG_JA(d_021E39B4, str_ja_021E3A54));
+    if (arg->mode>=4) GF_PANIC_Fail(PM_SRC_STR(d_021E39B4, str_ja_021E3A40), PM_SRC_LINE(0, 0x8E), PM_SRC_STR(d_021E39B4, str_ja_021E3A54));
     p=PROCSYS_AllocProcWork(obj,sizeof(struct CodeinSaveWork),BR_PROC_SYS_GetSlotId(arg->proc));
     MI_CpuFill8(p,0,sizeof(struct CodeinSaveWork));
     p->saveCtx=arg;

@@ -1101,7 +1101,7 @@ int BR_CODEIN_ProfileScreenMain(int unused, int *state, struct BrProcArgHead *ar
 struct CodeinProfileWork *BR_CODEIN_ProfileCreate(const CfgTpl *src, u16 heap)
 {
     struct CodeinProfileWork *p;
-    p = GFL_HEAP_Alloc(heap, sizeof(struct CodeinProfileWork), 0, PM_LANG_JA(d_021E3968, str_ja_021E39AC), 56);
+    p = GFL_HEAP_Alloc(heap, sizeof(struct CodeinProfileWork), 0, PM_SRC_STR(d_021E3968, str_ja_021E39AC), 56);
     MI_CpuFill8(p, 0, sizeof(struct CodeinProfileWork));
     p->object = *src;
     p->profileHeapId = heap;
@@ -1135,7 +1135,7 @@ struct BrCodeinObject *BR_CODEIN_ProfileCreateObject(int heap, int n, void *acto
 {
     int i;
     struct BrCodeinObject *p;
-    p = GFL_HEAP_Alloc((u16)heap, sizeof(struct BrCodeinObject), 0, PM_LANG_JA(d_021E3968, str_ja_021E39AC), 192);
+    p = GFL_HEAP_Alloc((u16)heap, sizeof(struct BrCodeinObject), 0, PM_SRC_STR(d_021E3968, str_ja_021E39AC), 192);
     p->actorSys = actorSys;
     p->res = res;
     p->capacity = n;
@@ -1149,7 +1149,7 @@ struct BrCodeinObject *BR_CODEIN_ProfileCreateObject(int heap, int n, void *acto
 /*
  * extent: existing matched callback 021E083C and its alignment follow the pool.
  */
-void BR_CODEIN_ProfileDestroyObject(struct BrCodeinObject *work){if(!work->vector)GF_PANIC_Fail(PM_LANG_JA(d_021E3974, str_ja_021E39AC), PM_SRC_LINE(0, 0xDC), PM_LANG_JA(d_021E3974, str_ja_021E39B8));if(!work)GF_PANIC_Fail(PM_LANG_JA(d_021E3974, str_ja_021E39AC), PM_SRC_LINE(0, 0xDD), PM_LANG_JA(d_021E3974, str_ja_021E39D8));STRBUF_Delete(work->vector);GFL_HEAP_Free(work);}
+void BR_CODEIN_ProfileDestroyObject(struct BrCodeinObject *work){if(!work->vector)GF_PANIC_Fail(PM_SRC_STR(d_021E3974, str_ja_021E39AC), PM_SRC_LINE(0, 0xDC), PM_SRC_STR(d_021E3974, str_ja_021E39B8));if(!work)GF_PANIC_Fail(PM_SRC_STR(d_021E3974, str_ja_021E39AC), PM_SRC_LINE(0, 0xDD), PM_SRC_STR(d_021E3974, str_ja_021E39D8));STRBUF_Delete(work->vector);GFL_HEAP_Free(work);}
 
 /*
  * leaf: empty callback solely blocks owned constructor 021E06D0; parent cleared.

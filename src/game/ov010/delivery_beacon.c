@@ -163,7 +163,7 @@ DeliveryBeacon *DELIVERY_BEACON_Create(DeliveryBeaconParam *param)
 {
     DeliveryBeacon *work;
 
-    work = GFL_HEAP_Alloc(param->heapId, sizeof(*work), 1, PM_LANG_JA(gDeliveryBeaconAllocSite, str_ja_0217251C), 0x127);
+    work = GFL_HEAP_Alloc(param->heapId, sizeof(*work), 1, PM_SRC_STR(gDeliveryBeaconAllocSite, str_ja_0217251C), 0x127);
     MI_CpuCopy8(param, work, sizeof(DeliveryBeaconParam));
     return work;
 }
@@ -171,7 +171,7 @@ DeliveryBeacon *DELIVERY_BEACON_Create(DeliveryBeaconParam *param)
 void DELIVERY_BEACON_CheckDestSize(DeliveryBeacon *work)
 {
     if (work->param.destSize != 0 && work->param.destSize >= DELIVERY_BEACON_SLOTS_PER_PAGE * DELIVERY_BEACON_PIECE_SIZE)
-        GF_PANIC_Fail(PM_LANG_JA(gDeliveryBeaconAssertText, str_ja_0217251C), PM_SRC_LINE(0, 0x14D), PM_LANG_JA(gDeliveryBeaconAssertText, str_ja_02172530));
+        GF_PANIC_Fail(PM_SRC_STR(gDeliveryBeaconAssertText, str_ja_0217251C), PM_SRC_LINE(0, 0x14D), PM_SRC_STR(gDeliveryBeaconAssertText, str_ja_02172530));
 }
 
 /*

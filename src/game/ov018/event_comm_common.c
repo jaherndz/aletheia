@@ -1400,7 +1400,7 @@ void EVENT_COMM_COMMON_ChangeTalkTypeEvent(struct GameEvent *event, EventCommCom
         EVENT_COMM_COMMON_ChangeTalkMsgEvent(event, copy);
     } else if (talkType >= 3) {
         if (sTalkEventTable[talkType - 8] == 0) {
-            GF_PANIC_Fail(PM_LANG_JA(sEmptyTextTalkTable, sEventCommCommonFile), PM_SRC_LINE(0, 0x333), PM_LANG_JA(sEmptyTextTalkTable, str_ja_02183B40));
+            GF_PANIC_Fail(PM_SRC_STR(sEmptyTextTalkTable, sEventCommCommonFile), PM_SRC_LINE(0, 0x333), PM_SRC_STR(sEmptyTextTalkTable, str_ja_02183B40));
         }
         sTalkEventTable[work->talkType - 8](event, copy);
     } else {
@@ -1426,7 +1426,7 @@ void EVENT_COMM_COMMON_ChangeTalkedTypeEvent(struct GameEvent *event, EventCommC
         EVENT_COMM_COMMON_ChangeTalkedMsgEvent(event, copy);
     } else if (talkType >= 3) {
         if (sTalkedEventTable[talkType - 8] == 0) {
-            GF_PANIC_Fail(PM_LANG_JA(sEmptyTextTalkTable, sEventCommCommonFile), PM_SRC_LINE(0, 0x35E), PM_LANG_JA(sEmptyTextTalkTable, str_ja_02183BA8));
+            GF_PANIC_Fail(PM_SRC_STR(sEmptyTextTalkTable, sEventCommCommonFile), PM_SRC_LINE(0, 0x35E), PM_SRC_STR(sEmptyTextTalkTable, str_ja_02183BA8));
         }
         sTalkedEventTable[work->talkType - 8](event, copy);
     } else {

@@ -245,7 +245,7 @@ int GDS_RAP_GetSearchResults(GdsRapWork *work, char *dst, int max)
     count = list->count;
     if (count > max) {
         count = max;
-        GF_PANIC_Fail(PM_LANG_JA(sGdsEmptyString2, str_ja_021D8CE8), PM_SRC_LINE(0, 0x159), PM_LANG_JA(sGdsEmptyString2, str_ja_021D8CFC));
+        GF_PANIC_Fail(PM_SRC_STR(sGdsEmptyString2, str_ja_021D8CE8), PM_SRC_LINE(0, 0x159), PM_SRC_STR(sGdsEmptyString2, str_ja_021D8CFC));
     }
     MI_CpuFill8(dst, 0, max * sizeof(GdsVideoListing));
     i = 0;

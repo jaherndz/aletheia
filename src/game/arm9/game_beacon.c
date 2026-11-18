@@ -348,9 +348,9 @@ void GAME_BEACON_Create(u32 heapId)
     u32 one = 1;
 
     if (GAME_BEACON_Work != 0) {
-        GF_PANIC_Fail(PM_LANG_JA(GAME_BEACON_AssertText, str_ja_020A7260), PM_SRC_LINE(0, 0x58), PM_LANG_JA(GAME_BEACON_AssertText, str_ja_020A7270));
+        GF_PANIC_Fail(PM_SRC_STR(GAME_BEACON_AssertText, str_ja_020A7260), PM_SRC_LINE(0, 0x58), PM_SRC_STR(GAME_BEACON_AssertText, str_ja_020A7270));
     }
-    GAME_BEACON_Work = GFL_HEAP_Alloc(heapId, sizeof(GameBeaconWork), one, PM_LANG_JA(GAME_BEACON_FileName, str_ja_020A7260), 0x5a);
+    GAME_BEACON_Work = GFL_HEAP_Alloc(heapId, sizeof(GameBeaconWork), one, PM_SRC_STR(GAME_BEACON_FileName, str_ja_020A7260), 0x5a);
     GAME_BEACON_Work->newestIndex = (u8)(one - 2);
 }
 

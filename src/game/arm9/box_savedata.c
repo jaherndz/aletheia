@@ -235,7 +235,7 @@ int BOX_SAVEDATA_AddPokemonToBox(struct GameData *gameData, u32 box, const struc
     if (box == BOX_CURRENT) {
         box = header->currentBox;
     } else if (box >= header->usableBoxCount) {
-        GF_PANIC_Fail(PM_LANG_JA(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0xD7), PM_LANG_JA(_BoxEmptyString, str_ja_020A6D14));
+        GF_PANIC_Fail(PM_SRC_STR(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0xD7), PM_SRC_STR(_BoxEmptyString, str_ja_020A6D14));
     }
     for (slot = 0; slot < BOX_CAPACITY; slot++) {
         struct BoxPokemon *boxMons = BOX_SAVEDATA_GetBoxPokemon(gameData, box);
@@ -279,7 +279,7 @@ int BOX_SAVEDATA_SetPokemon(struct GameData *gameData, u32 box, u32 slot, const 
         POKE_TOOL_RecoverBoxAllPP(&boxMons[slot]);
         return 1;
     }
-    GF_PANIC_Fail(PM_LANG_JA(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x103), PM_LANG_JA(_BoxEmptyString, str_ja_020A6D14));
+    GF_PANIC_Fail(PM_SRC_STR(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x103), PM_SRC_STR(_BoxEmptyString, str_ja_020A6D14));
     return 0;
 }
 
@@ -443,7 +443,7 @@ int BOX_SAVEDATA_CountFreeSlotsInBox(struct GameData *gameData, u32 box)
         box = header->currentBox;
     }
     if (box >= MAX_BOXES) {
-        GF_PANIC_Fail(PM_LANG_JA(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x20C), PM_LANG_JA(_BoxEmptyString, str_ja_020A6D18));
+        GF_PANIC_Fail(PM_SRC_STR(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x20C), PM_SRC_STR(_BoxEmptyString, str_ja_020A6D18));
     }
     freeCount = 0;
     boxMons = BOX_SAVEDATA_GetBoxPokemon(gameData, box);
@@ -522,7 +522,7 @@ void BOX_SAVEDATA_GetBoxName(struct GameData *gameData, u32 box, struct Strbuf *
         STRBUF_SetString(dest, header->names[box].chars);
         return;
     }
-    GF_PANIC_Fail(PM_LANG_JA(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x27D), PM_LANG_JA(_BoxEmptyString, str_ja_020A6D14));
+    GF_PANIC_Fail(PM_SRC_STR(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x27D), PM_SRC_STR(_BoxEmptyString, str_ja_020A6D14));
 }
 
 void BOX_SAVEDATA_SetBoxName(struct GameData *gameData, u32 box, const struct Strbuf *name)
@@ -558,7 +558,7 @@ int BOX_SAVEDATA_CountPokemonInBox(struct GameData *gameData, u32 box)
         }
         return count;
     }
-    GF_PANIC_Fail(PM_LANG_JA(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x2BA), PM_LANG_JA(_BoxEmptyString, str_ja_020A6D14));
+    GF_PANIC_Fail(PM_SRC_STR(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x2BA), PM_SRC_STR(_BoxEmptyString, str_ja_020A6D14));
     return 0;
 }
 
@@ -584,7 +584,7 @@ int BOX_SAVEDATA_CountNonEggPokemonInBox(struct GameData *gameData, u32 box)
         }
         return count;
     }
-    GF_PANIC_Fail(PM_LANG_JA(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x2E4), PM_LANG_JA(_BoxEmptyString, str_ja_020A6D14));
+    GF_PANIC_Fail(PM_SRC_STR(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x2E4), PM_SRC_STR(_BoxEmptyString, str_ja_020A6D14));
     return 0;
 }
 
@@ -634,10 +634,10 @@ int BOX_SAVEDATA_GetPokemonValue(struct GameData *gameData, u32 box, u32 slot, i
     struct BoxSaveHeader *header = BOX_SAVEDATA_GetHeader(gameData);
 
     if (box >= MAX_BOXES && box != BOX_CURRENT) {
-        GF_PANIC_Fail(PM_LANG_JA(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x322), PM_LANG_JA(_BoxEmptyString, str_ja_020A6D30));
+        GF_PANIC_Fail(PM_SRC_STR(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x322), PM_SRC_STR(_BoxEmptyString, str_ja_020A6D30));
     }
     if (slot >= BOX_CAPACITY) {
-        GF_PANIC_Fail(PM_LANG_JA(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x323), PM_LANG_JA(_BoxEmptyString, str_ja_020A6D6C));
+        GF_PANIC_Fail(PM_SRC_STR(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x323), PM_SRC_STR(_BoxEmptyString, str_ja_020A6D6C));
     }
     if (box == BOX_CURRENT) {
         box = header->currentBox;
@@ -650,10 +650,10 @@ struct BoxPokemon *BOX_SAVEDATA_GetPokemon(struct GameData *gameData, u32 box, u
     struct BoxSaveHeader *header = BOX_SAVEDATA_GetHeader(gameData);
 
     if (box >= MAX_BOXES && box != BOX_CURRENT) {
-        GF_PANIC_Fail(PM_LANG_JA(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x367), PM_LANG_JA(_BoxEmptyString, str_ja_020A6D7C));
+        GF_PANIC_Fail(PM_SRC_STR(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x367), PM_SRC_STR(_BoxEmptyString, str_ja_020A6D7C));
     }
     if (slot >= BOX_CAPACITY) {
-        GF_PANIC_Fail(PM_LANG_JA(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x368), PM_LANG_JA(_BoxEmptyString, str_ja_020A6DBC));
+        GF_PANIC_Fail(PM_SRC_STR(_BoxEmptyString, str_ja_020A6D04), PM_SRC_LINE(0, 0x368), PM_SRC_STR(_BoxEmptyString, str_ja_020A6DBC));
     }
     if (box == BOX_CURRENT) {
         box = header->currentBox;
@@ -687,7 +687,7 @@ u32 BOX_SAVEDATA_GetBoxPageSize(void)
 /* Allocate the four byte word holder (line 0x3B9 of box_savedata.c) and store `value` in it. */
 u32 *BOX_SAVEDATA_CreateWordHolder(u32 heapId, u32 value)
 {
-    u32 *word = GFL_HEAP_Alloc(heapId, 4, 0, PM_LANG_JA(_BoxSavedataFileName, str_ja_020A6D04), 0x3B9);
+    u32 *word = GFL_HEAP_Alloc(heapId, 4, 0, PM_SRC_STR(_BoxSavedataFileName, str_ja_020A6D04), 0x3B9);
 
     *word = value;
     return word;

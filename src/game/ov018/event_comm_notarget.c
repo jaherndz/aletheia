@@ -637,7 +637,7 @@ void EVENT_COMM_COMMON_StartMsgEvent(struct GameEvent *event, EventCommCommonWor
         work->msgId = msgIds[src->msgIndex];
         WORDSET_SetSlotMyStatus(src->msgBox.wordSet, 0, src->myStatus);
     } else {
-        GF_PANIC_Fail(PM_LANG_JA(sEmptyTextA, str_ja_02183C34), PM_SRC_LINE(0, 0xE3), PM_LANG_JA(sEmptyTextA, str_ja_02183C4C));
+        GF_PANIC_Fail(PM_SRC_STR(sEmptyTextA, str_ja_02183C34), PM_SRC_LINE(0, 0xE3), PM_SRC_STR(sEmptyTextA, str_ja_02183C4C));
     }
 }
 

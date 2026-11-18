@@ -98,7 +98,7 @@ void **NAMEIN_GRAPHIC_CreateMembers(u16 heap)
 {
     void **p;
     int i = 0;
-    p = GFL_HEAP_Alloc(heap, 5 * sizeof(void *), 0, PM_LANG_JA(d_021F5798, str_ja_021F55D8), PM_SRC_LINE(147, 146));
+    p = GFL_HEAP_Alloc(heap, 5 * sizeof(void *), 0, PM_SRC_STR(d_021F5798, str_ja_021F55D8), PM_SRC_LINE(147, 146));
     MI_CpuFill8(p, 0, 5 * sizeof(void *));
     for (; i < 5; i++)
         p[i] = NAMEIN_GRAPHIC_LoadArcMember(i, heap);

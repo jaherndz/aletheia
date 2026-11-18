@@ -717,7 +717,7 @@ void WORLDTRADE_BOX_CreateStrings(WorldtradeWork *p)
     if (p->slot == 0x1e) {
         p->slot = 0;
     }
-    (*(void **)&p->info_p) = GFL_HEAP_Alloc(0x48, 0x78, 0, PM_LANG_JA(str_02203B54, str_ja_02203C7C), 0x344);
+    (*(void **)&p->info_p) = GFL_HEAP_Alloc(0x48, 0x78, 0, PM_SRC_STR(str_02203B54, str_ja_02203C7C), 0x344);
 }
 
 void WORLDTRADE_BOX_DeleteStrings(WorldtradeWork *p) { GFL_HEAP_Free((void *)p->info_p); STRBUF_Delete(p->boxNameStr); STRBUF_Delete(p->str); STRBUF_Delete(p->strs); }
@@ -1132,7 +1132,7 @@ int WORLDTRADE_BOX_StateOpenCancelConfirm(WorldtradeWork *p)
 int WORLDTRADE_BOX_StateCancelConfirmInput(WorldtradeWork *p)
 {
     unsigned result = WORLDTRADE_UpdateTaskMenuYesNo(p);
-    GF_PANIC_Fail(PM_LANG_JA(d_02203B68, str_ja_02203C7C), PM_SRC_LINE(0, 0x664), PM_LANG_JA(d_02203B68, str_ja_02203C90));
+    GF_PANIC_Fail(PM_SRC_STR(d_02203B68, str_ja_02203C7C), PM_SRC_LINE(0, 0x664), PM_SRC_STR(d_02203B68, str_ja_02203C90));
     if (result == 1) {
         WORLDTRADE_CloseTaskMenu(p);
         p->state = 2;
@@ -1410,7 +1410,7 @@ void WORLDTRADE_BOX_LoadBoxIcons(WorldtradeWork *p, int box)
     IconRec *icons;
     u16 i;
 
-    icons = GFL_HEAP_Alloc(0x8001, 30 * sizeof(IconRec), 0, PM_LANG_JA(str_02203B54, str_ja_02203C7C), 0x892);
+    icons = GFL_HEAP_Alloc(0x8001, 30 * sizeof(IconRec), 0, PM_SRC_STR(str_02203B54, str_ja_02203C7C), 0x892);
     p->icons = icons;
     arc = ARC_TOOL_CreateHandle(7, 0x48);
     if (box >= 0 && box < p->nbox) {
@@ -1447,7 +1447,7 @@ void WORLDTRADE_BOX_LoadBoxIcons(WorldtradeWork *p, int box)
         MSGDATA_ReadString(p->bank, 0x62, p->boxNameStr);
     } else {
 #if LANGUAGE == LANGUAGE_JAPANESE
-        GF_PANIC_FailPrintf(PM_LANG_JA(str_02203B54, str_ja_02203C7C), 0x8CC, str_ja_02203C94, box);
+        GF_PANIC_FailPrintf(PM_SRC_STR(str_02203B54, str_ja_02203C7C), 0x8CC, str_ja_02203C94, box);
 #else
         GF_PANIC_Fail((void *)0x02203B68, 0, (void *)0x02203B68);
 #endif

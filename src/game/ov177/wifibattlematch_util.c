@@ -505,7 +505,7 @@ void WIFIBATTLEMATCH_UTIL_SetMode(WifibattlematchUtilWork *p, int mode)
         break;
     case 1:
         if (p->keyCursor != 0) {
-            GF_PANIC_Fail(PM_LANG_JA((const char *)d_021E8DEC, str_ja_021E8DF4), PM_SRC_LINE(0, 0x121), PM_LANG_JA((const char *)d_021E8DEC, str_ja_021E8E0C));
+            GF_PANIC_Fail(PM_SRC_STR((const char *)d_021E8DEC, str_ja_021E8DF4), PM_SRC_LINE(0, 0x121), PM_SRC_STR((const char *)d_021E8DEC, str_ja_021E8E0C));
         }
         PRINTSYS_CTRL_Init((struct PrintStreamCtrl *)(u8 *)&p->ctrlKeyReleased, 2);
         p->keyCursor = APP_KEYCURSOR_CreateDefault(p->bgSlot, 1, 0, p->heapId);

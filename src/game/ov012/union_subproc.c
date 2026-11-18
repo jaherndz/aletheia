@@ -421,7 +421,7 @@ extern const int gPmsInputProcData[];
 void UNION_SCENE_RequestScene(UnionRoomWork *unionRoom, int sceneId, void *sceneParam)
 {
     if (unionRoom->subEvent.id != 0 || unionRoom->subEvent.active != 0)
-        GF_PANIC_Fail(PM_LANG_JA(gUnionMainEmptyString, str_ja_021755DC), PM_SRC_LINE(0, 0x163), PM_LANG_JA(gUnionMainEmptyString, str_ja_021755EC));
+        GF_PANIC_Fail(PM_SRC_STR(gUnionMainEmptyString, str_ja_021755DC), PM_SRC_LINE(0, 0x163), PM_SRC_STR(gUnionMainEmptyString, str_ja_021755EC));
     unionRoom->subEvent.id = sceneId;
     unionRoom->subEvent.param = sceneParam;
     unionRoom->subEvent.seq = 0;

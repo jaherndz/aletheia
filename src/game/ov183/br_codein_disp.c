@@ -542,15 +542,15 @@ extern const unsigned char d_021E3928[];
 void BR_CODEIN_ProfileSetupSprite(struct CodeinProfileWork *work)
 {
     struct BrCodeinTriple t;
-    if (!BR_RES_GetSprite(work->object.res, 11, &t)) GF_PANIC_Fail(PM_LANG_JA(d_021E3978, str_ja_021E39F0), PM_SRC_LINE(0, 0x33), PM_LANG_JA(d_021E3978, str_ja_021E3A04));
+    if (!BR_RES_GetSprite(work->object.res, 11, &t)) GF_PANIC_Fail(PM_SRC_STR(d_021E3978, str_ja_021E39F0), PM_SRC_LINE(0, 0x33), PM_SRC_STR(d_021E3978, str_ja_021E3A04));
     work->sprite11PaletteId = t.c;
     work->sprite11CharId = t.b;
     work->sprite11CellAnimId = t.a;
-    if (!BR_RES_GetSprite(work->object.res, 12, &t)) GF_PANIC_Fail(PM_LANG_JA(d_021E3978, str_ja_021E39F0), PM_SRC_LINE(0, 0x3B), PM_LANG_JA(d_021E3978, str_ja_021E3A04));
+    if (!BR_RES_GetSprite(work->object.res, 12, &t)) GF_PANIC_Fail(PM_SRC_STR(d_021E3978, str_ja_021E39F0), PM_SRC_LINE(0, 0x3B), PM_SRC_STR(d_021E3978, str_ja_021E3A04));
     work->sprite12PaletteId = t.c;
     work->sprite12CharId = t.b;
     work->sprite12CellAnimId = t.a;
-    if (!BR_RES_GetSprite(work->object.res, 6, &t)) GF_PANIC_Fail(PM_LANG_JA(d_021E3978, str_ja_021E39F0), PM_SRC_LINE(0, 0x44), PM_LANG_JA(d_021E3978, str_ja_021E3A04));
+    if (!BR_RES_GetSprite(work->object.res, 6, &t)) GF_PANIC_Fail(PM_SRC_STR(d_021E3978, str_ja_021E39F0), PM_SRC_LINE(0, 0x44), PM_SRC_STR(d_021E3978, str_ja_021E3A04));
     *(int *)&work->sprite6PaletteId = t.c;
     *(int *)&work->sprite6CharId = t.b;
     *(int *)&work->sprite6CellAnimId = t.a;

@@ -1142,7 +1142,7 @@ void INTRUDE_SUBDISP_Update(IntrudeSubdispWork *work, int mode)
             }
             break;
         default:
-            GF_PANIC_Fail(PM_LANG_JA((char *)str_02183B28, (char *)str_02183B14), PM_SRC_LINE(0, 0x2E8), PM_LANG_JA((char *)str_02183B28, (char *)str_ja_02183A88));
+            GF_PANIC_Fail(PM_SRC_STR((char *)str_02183B28, (char *)str_02183B14), PM_SRC_LINE(0, 0x2E8), PM_SRC_STR((char *)str_02183B28, (char *)str_ja_02183A88));
             break;
         }
     }

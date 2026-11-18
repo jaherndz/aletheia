@@ -118,11 +118,23 @@ extern int g_pm_language;
 #define PM_SRC_LINE(english, japanese) (english)
 #endif
 
+/* A source string the code passes on beside such a line: the file name and the expression of a
+ * failed check, the file name of a heap allocation.  The Japanese failed checks pass a file
+ * name, a line and the expression (strings named by their black_ja address, str_ja_XXXXXXXX),
+ * where the others pass one empty string and line 0:
+ *     GF_PANIC_Fail(PM_SRC_STR(str, str_ja_02201034), PM_SRC_LINE(0, 0x202), PM_SRC_STR(str, str_ja_02201060));
+ * Only the panic hook and the heap's site stamp receive them, so a PC build with the run-time
+ * language keeps the English value, as the European cartridges do. */
+#if PM_LANGUAGE_RUNTIME
+#define PM_SRC_STR(english, japanese) (english)
+#elif LANGUAGE == LANGUAGE_JAPANESE
+#define PM_SRC_STR(english, japanese) (japanese)
+#else
+#define PM_SRC_STR(english, japanese) (english)
+#endif
+
 /* Any other value that is different in the Japanese cartridge only: the Japanese value, else
- * the English one.  The Japanese failed checks pass a file name, a line and the expression
- * (strings named by their black_ja address, str_ja_XXXXXXXX), where the others pass one empty
- * string and line 0:
- *     GF_PANIC_Fail(PM_LANG_JA(str, str_ja_02201034), PM_SRC_LINE(0, 0x202), PM_LANG_JA(str, str_ja_02201060)); */
+ * the English one. */
 #if LANGUAGE == LANGUAGE_JAPANESE
 #define PM_LANG_JA(english, japanese) (japanese)
 #else

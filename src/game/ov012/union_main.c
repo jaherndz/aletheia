@@ -130,9 +130,9 @@ void UNION_MAIN_StartComm(struct GameSystem *gameSystem)
     gameComm = GAMESYSTEM_GetGameComm(gameSystem);
     gameData = GAMESYSTEM_GetGameData(gameSystem);
     if (GAME_COMM_GetKind(gameComm) != 0) {
-        GF_PANIC_Fail(PM_LANG_JA(sUnionMainAssertText, str_ja_02175510), PM_SRC_LINE(0, 0x31), PM_LANG_JA(sUnionMainAssertText, str_ja_02175520));
+        GF_PANIC_Fail(PM_SRC_STR(sUnionMainAssertText, str_ja_02175510), PM_SRC_LINE(0, 0x31), PM_SRC_STR(sUnionMainAssertText, str_ja_02175520));
     }
-    parent = GFL_HEAP_Alloc(5, sizeof(UnionParentWork), 1, PM_LANG_JA(sUnionMainFile, str_ja_02175510), 0x37);
+    parent = GFL_HEAP_Alloc(5, sizeof(UnionParentWork), 1, PM_SRC_STR(sUnionMainFile, str_ja_02175510), 0x37);
     parent->myStatus = GAME_DATA_GetMyStatus(gameData);
     parent->gameComm = gameComm;
     parent->gameData = gameData;
@@ -151,7 +151,7 @@ void UNION_MAIN_UpdateField(struct GameComm *gameComm, void *fieldMap)
     }
     work = GAME_COMM_GetWork(gameComm);
     if (work == 0) {
-        GF_PANIC_Fail(PM_LANG_JA(sUnionMainAssertText, str_ja_02175510), PM_SRC_LINE(0, 0x53), PM_LANG_JA(sUnionMainAssertText, str_ja_02175558));
+        GF_PANIC_Fail(PM_SRC_STR(sUnionMainAssertText, str_ja_02175510), PM_SRC_LINE(0, 0x53), PM_SRC_STR(sUnionMainAssertText, str_ja_02175558));
     }
     if (GAMESYSTEM_GetFieldMapState(FIELDMAP_GetGameSystem(fieldMap)) == 1) {
         return;

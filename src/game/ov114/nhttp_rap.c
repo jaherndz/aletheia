@@ -177,7 +177,7 @@ int NHTTP_RAP_CreateRequest(int index, NHTTPRapSession *session_p)
 {
     NHTTPConnection *connection_p;
     if(NHTTP_Startup(NHTTP_RAP_Alloc,NHTTP_RAP_Free,12)!=0) {
-        GF_PANIC_Fail(PM_LANG_JA(sNHTTPRapStrings, str_ja_021CE10C),PM_SRC_LINE(0, 0xB1),PM_LANG_JA(sNHTTPRapStrings, str_ja_021CE118));
+        GF_PANIC_Fail(PM_SRC_STR(sNHTTPRapStrings, str_ja_021CE10C),PM_SRC_LINE(0, 0xB1),PM_SRC_STR(sNHTTPRapStrings, str_ja_021CE118));
         return 0;
     }
     if(session_p==0) return 0;
@@ -185,7 +185,7 @@ int NHTTP_RAP_CreateRequest(int index, NHTTPRapSession *session_p)
     if(index==4) STD_TSNPrintf(session_p->url,400,sNHTTPRapRequestTable[index].urlFormat,session_p->source_p+69);
     else STD_TSNPrintf(session_p->url,400,sNHTTPRapRequestTable[index].urlFormat,session_p->gameCode,PM_VERSION_ID,PM_LANG_ID,1,session_p->source_p+69);
     connection_p=NHTTP_CreateConnection(session_p->url,sNHTTPRapRequestTable[index].method,session_p->recvBuf,1024,NHTTP_RAP_ConnectionCallback,session_p);
-    if(connection_p==0) GF_PANIC_Fail(PM_LANG_JA(sNHTTPRapStrings, str_ja_021CE10C),PM_SRC_LINE(0, 0xC7),PM_LANG_JA(sNHTTPRapStrings, str_ja_021CE11C));
+    if(connection_p==0) GF_PANIC_Fail(PM_SRC_STR(sNHTTPRapStrings, str_ja_021CE10C),PM_SRC_LINE(0, 0xC7),PM_SRC_STR(sNHTTPRapStrings, str_ja_021CE11C));
     if(connection_p==0) return 0;
     session_p->connection_p=connection_p;
 #if LANGUAGE == LANGUAGE_JAPANESE
@@ -203,15 +203,15 @@ int NHTTP_RAP_CreateRequest(int index, NHTTPRapSession *session_p)
     }
 #endif
     if(NHTTP_AddHeaderField(connection_p,sNHTTPRapStrings+4,sNHTTPRapStrings+12)!=0) {
-        GF_PANIC_Fail(PM_LANG_JA(sNHTTPRapStrings, str_ja_021CE10C),PM_SRC_LINE(0, 0xD6),PM_LANG_JA(sNHTTPRapStrings, str_ja_021CE118));
+        GF_PANIC_Fail(PM_SRC_STR(sNHTTPRapStrings, str_ja_021CE10C),PM_SRC_LINE(0, 0xD6),PM_SRC_STR(sNHTTPRapStrings, str_ja_021CE118));
         return 0;
     }
     if(NHTTP_AddHeaderField(connection_p,sNHTTPRapStrings+16,sNHTTPRapStrings+28)!=0) {
-        GF_PANIC_Fail(PM_LANG_JA(sNHTTPRapStrings, str_ja_021CE10C),PM_SRC_LINE(0, 0xDA),PM_LANG_JA(sNHTTPRapStrings, str_ja_021CE118));
+        GF_PANIC_Fail(PM_SRC_STR(sNHTTPRapStrings, str_ja_021CE10C),PM_SRC_LINE(0, 0xDA),PM_SRC_STR(sNHTTPRapStrings, str_ja_021CE118));
         return 0;
     }
     if(NHTTP_SetBasicAuthorization(connection_p,sNHTTPRapStrings+40,sNHTTPRapStrings+48)!=0) {
-        GF_PANIC_Fail(PM_LANG_JA(sNHTTPRapStrings, str_ja_021CE10C),PM_SRC_LINE(0, 0xDF),PM_LANG_JA(sNHTTPRapStrings, str_ja_021CE118));
+        GF_PANIC_Fail(PM_SRC_STR(sNHTTPRapStrings, str_ja_021CE10C),PM_SRC_LINE(0, 0xDF),PM_SRC_STR(sNHTTPRapStrings, str_ja_021CE118));
         return 0;
     }
     return 1;
@@ -282,7 +282,7 @@ char *NHTTP_RAP_GetRecvBuffer(NHTTPRapSession *session_p) { if(session_p==0) ret
 
 NHTTPRapSession *NHTTP_RAP_Create(u16 heapId, u32 gameCode, char *source_p)
 {
-    NHTTPRapSession *session_p = GFL_HEAP_Alloc(heapId, 0x5a8, 1, PM_LANG_JA((const char *)0x021CE310, str_ja_021CE10C), PM_SRC_LINE(0x1aa, 0x196));
+    NHTTPRapSession *session_p = GFL_HEAP_Alloc(heapId, 0x5a8, 1, PM_SRC_STR((const char *)0x021CE310, str_ja_021CE10C), PM_SRC_LINE(0x1aa, 0x196));
 
     *(NHTTPRapSession **)0x021CF960 = session_p;
     session_p->gameCode = gameCode;
@@ -323,7 +323,7 @@ void NHTTP_RAP_AllocPostData(NHTTPRapSession *session_p, int alignment, int size
 
     if (session_p == 0)
         return;
-    buf_p = GFL_NET_AllocAligned(alignment, size + 0x130, PM_LANG_JA((const char *)0x021CE310, str_ja_021CE10C), PM_SRC_LINE(0x1f5, 0x1e1));
+    buf_p = GFL_NET_AllocAligned(alignment, size + 0x130, PM_SRC_STR((const char *)0x021CE310, str_ja_021CE10C), PM_SRC_LINE(0x1f5, 0x1e1));
     session_p->postBuf_p = buf_p;
     MI_CpuFill8(buf_p, 0, size + 0x130);
     NHTTP_RAP_WritePostHeader(session_p, id);
@@ -345,7 +345,7 @@ int NHTTP_RAP_CreatePostRequest(NHTTPRapSession *session_p)
     NHTTPConnection *connection_p;
     if (session_p == 0) return 0;
     if (NHTTP_Startup(NHTTP_RAP_Alloc, NHTTP_RAP_Free, 12) != 0) {
-        GF_PANIC_Fail(PM_LANG_JA(sNHTTPRapStrings, str_ja_021CE10C), PM_SRC_LINE(0, 0x204), PM_LANG_JA(sNHTTPRapStrings, str_ja_021CE118));
+        GF_PANIC_Fail(PM_SRC_STR(sNHTTPRapStrings, str_ja_021CE10C), PM_SRC_LINE(0, 0x204), PM_SRC_STR(sNHTTPRapStrings, str_ja_021CE118));
         return 0;
     }
     MI_CpuFill8(session_p->url, 0, 4);

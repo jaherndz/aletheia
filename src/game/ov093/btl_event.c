@@ -376,7 +376,7 @@ void BTL_EVENT_PushVarFrame(int line)
     if (stack->frameTop < BTL_EVENT_VAR_MAX - 1) {
         stack->keys[stack->frameTop++] = 1;
     } else {
-        GF_PANIC_Fail(PM_LANG_JA(gBtlEventEmptyString, str_ja_021F38D0), PM_SRC_LINE(0, 0x44C), PM_LANG_JA(gBtlEventEmptyString, str_ja_021F38DC));
+        GF_PANIC_Fail(PM_SRC_STR(gBtlEventEmptyString, str_ja_021F38D0), PM_SRC_LINE(0, 0x44C), PM_SRC_STR(gBtlEventEmptyString, str_ja_021F38DC));
     }
 }
 

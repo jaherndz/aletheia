@@ -524,7 +524,7 @@ void WORLDTRADE_ADAPTER_CreateMonFromBox(void *wordSet, u32 slot, void *boxMon)
  */
 void *WORLDTRADE_ADAPTER_AllocHeapBuf(u32 heap)
 {
-    return GFL_HEAP_Alloc(heap, POKE_TOOL_GetPartyParamSize(), 0, PM_LANG_JA(g_02203F5C, str_ja_02204138), PM_SRC_LINE(0x47, 0x44));
+    return GFL_HEAP_Alloc(heap, POKE_TOOL_GetPartyParamSize(), 0, PM_SRC_STR(g_02203F5C, str_ja_02204138), PM_SRC_LINE(0x47, 0x44));
 }
 
 /*
@@ -722,7 +722,7 @@ u32 WORLDTRADE_ADAPTER_PrintQueColor(void *win, u8 unused1, struct Strbuf *str, 
         }
     }
     if (found == 0) {
-        GF_PANIC_Fail(PM_LANG_JA((void *)0x02203F74, str_ja_02204138), PM_SRC_LINE(0, 0x172), PM_LANG_JA((void *)0x02203F74, str_ja_02204150));
+        GF_PANIC_Fail(PM_SRC_STR((void *)0x02203F74, str_ja_02204138), PM_SRC_LINE(0, 0x172), PM_SRC_STR((void *)0x02203F74, str_ja_02204150));
     }
     found->win = win;
     found->busy = 0;
@@ -755,7 +755,7 @@ MsgSys *WORLDTRADE_ADAPTER_InitMessageSystem(u32 unused1, u32 unused2, u32 unuse
 {
     MsgSys *ctx;
 
-    ctx = GFL_HEAP_Alloc(heap, sizeof(MsgSys), 0, PM_LANG_JA((const char *)g_02203F5C, str_ja_02204138), PM_SRC_LINE(0x1DD, 0x1BA));
+    ctx = GFL_HEAP_Alloc(heap, sizeof(MsgSys), 0, PM_SRC_STR((const char *)g_02203F5C, str_ja_02204138), PM_SRC_LINE(0x1DD, 0x1BA));
     MI_CpuFill8(ctx, 0, sizeof(MsgSys));
     ctx->heap = heap;
     ctx->font = GF_FONT_Create(0x17, 3, 0, 0, heap);
@@ -822,7 +822,7 @@ void WORLDTRADE_ADAPTER_PrintNumber(MsgSys *ctx, u32 num, u32 digits, u32 mode, 
             return;
         }
     }
-    GF_PANIC_Fail(PM_LANG_JA((void *)0x02203F74, str_ja_02204138), PM_SRC_LINE(0, 0x218), PM_LANG_JA((void *)0x02203F74, str_ja_02204160));
+    GF_PANIC_Fail(PM_SRC_STR((void *)0x02203F74, str_ja_02204138), PM_SRC_LINE(0, 0x218), PM_SRC_STR((void *)0x02203F74, str_ja_02204160));
 }
 
 #pragma thumb on
@@ -848,5 +848,5 @@ void WORLDTRADE_ADAPTER_QueueMessagePrint(MsgSys *p, int unusedArg, void *win, i
             return;
         }
     }
-    GF_PANIC_Fail(PM_LANG_JA((void *)0x02203F74, str_ja_02204138), PM_SRC_LINE(0, 0x23A), PM_LANG_JA((void *)0x02203F74, str_ja_02204160));
+    GF_PANIC_Fail(PM_SRC_STR((void *)0x02203F74, str_ja_02204138), PM_SRC_LINE(0, 0x23A), PM_SRC_STR((void *)0x02203F74, str_ja_02204160));
 }

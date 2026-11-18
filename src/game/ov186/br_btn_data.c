@@ -91,7 +91,7 @@ void *BR_BTN_DATA_Create(int *configPtr, u16 heapId)
     int i;
     int *table;
     for (i = 0; i < 12; i++) total += d_022007F0[i].count;
-    table = GFL_HEAP_Alloc(heapId, total * 24 + 4, 0, PM_LANG_JA(d_02200D28, str_ja_02200E18), 0x429);
+    table = GFL_HEAP_Alloc(heapId, total * 24 + 4, 0, PM_SRC_STR(d_02200D28, str_ja_02200E18), 0x429);
     MI_CpuFill8(table, 0, total * 24 + 4);
     *table = *configPtr;
     BR_BTN_DATA_Fill((struct BrBtnTable *)table);
@@ -120,7 +120,7 @@ void BR_BTN_DATA_Fill(struct BrBtnTable *table)
             case 1: row->enabled = config[0]; break;
             case 2: case 3: case 4:
                 index = row->kind - 2;
-                if (index >= 4) GF_PANIC_Fail(PM_LANG_JA(d_02200D38, str_ja_02200E18), PM_SRC_LINE(0, 0x46D), PM_LANG_JA(d_02200D38, str_ja_02200E28));
+                if (index >= 4) GF_PANIC_Fail(PM_SRC_STR(d_02200D38, str_ja_02200E18), PM_SRC_LINE(0, 0x46D), PM_SRC_STR(d_02200D38, str_ja_02200E28));
                 row->enabled = config[index + 1];
                 if (row->enabled) row->msgId = 26;
                 break;
@@ -136,18 +136,18 @@ void *BR_BTN_DATA_GetRow(struct BrBtnTable *table, int section, unsigned item)
 {
     int i;
     int total;
-    if (section >= 12) GF_PANIC_Fail(PM_LANG_JA(d_02200D38, str_ja_02200E18), PM_SRC_LINE(0, 0x496), PM_LANG_JA(d_02200D38, str_ja_02200E30));
-    if (item >= d_022007F0[section].count) GF_PANIC_Fail(PM_LANG_JA(d_02200D38, str_ja_02200E18), PM_SRC_LINE(0, 0x497), PM_LANG_JA(d_02200D38, str_ja_02200E48));
+    if (section >= 12) GF_PANIC_Fail(PM_SRC_STR(d_02200D38, str_ja_02200E18), PM_SRC_LINE(0, 0x496), PM_SRC_STR(d_02200D38, str_ja_02200E30));
+    if (item >= d_022007F0[section].count) GF_PANIC_Fail(PM_SRC_STR(d_02200D38, str_ja_02200E18), PM_SRC_LINE(0, 0x497), PM_SRC_STR(d_02200D38, str_ja_02200E48));
     total = 0;
     for (i = 0; i < section; i++) total += d_022007F0[i].count;
     return &table->records[total + item];
 }
 
-unsigned short BR_BTN_DATA_GetSectionCount(void *table, int section) { if(section>=12)GF_PANIC_Fail(PM_LANG_JA(d_02200D38, str_ja_02200E18),PM_SRC_LINE(0, 0x4AF),PM_LANG_JA(d_02200D38, str_ja_02200E30));return d_022007F0[section].count; }
+unsigned short BR_BTN_DATA_GetSectionCount(void *table, int section) { if(section>=12)GF_PANIC_Fail(PM_SRC_STR(d_02200D38, str_ja_02200E18),PM_SRC_LINE(0, 0x4AF),PM_SRC_STR(d_02200D38, str_ja_02200E30));return d_022007F0[section].count; }
 
 unsigned BR_BTN_DATA_GetMaxSectionCount(void *table) { unsigned best=0;int section;for(section=0;section<12;section++){if(best<BR_BTN_DATA_GetSectionCount(table,section)) best=BR_BTN_DATA_GetSectionCount(table,section);}return best; }
 
-int BR_BTN_DATA_GetRowField(void *record,int fieldIndex) { if(fieldIndex>=12)GF_PANIC_Fail(PM_LANG_JA(d_02200D38, str_ja_02200E18),PM_SRC_LINE(0, 0x50B),PM_LANG_JA(d_02200D38, str_ja_02200E6C));return ((u16 *)record)[fieldIndex]; }
+int BR_BTN_DATA_GetRowField(void *record,int fieldIndex) { if(fieldIndex>=12)GF_PANIC_Fail(PM_SRC_STR(d_02200D38, str_ja_02200E18),PM_SRC_LINE(0, 0x50B),PM_SRC_STR(d_02200D38, str_ja_02200E6C));return ((u16 *)record)[fieldIndex]; }
 
 void *BR_BTN_DATA_CreateLabel(unsigned *const *wordSetSrc,void *record,struct MsgBank *archive,unsigned short heapId)
 {

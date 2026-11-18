@@ -638,7 +638,7 @@ int WORLDTRADE_SERVER_StartRequest(WorldtradeWork *p)
         GFL_NET_RefreshWmIconAtTopRight(1, 0x48);
         break;
     default:
-        GF_PANIC_Fail(PM_LANG_JA(str_02203F58, str_ja_0220411C), PM_SRC_LINE(0, 0x2B5), PM_LANG_JA(str_02203F58, str_ja_02204130));
+        GF_PANIC_Fail(PM_SRC_STR(str_02203F58, str_ja_0220411C), PM_SRC_LINE(0, 0x2B5), PM_SRC_STR(str_02203F58, str_ja_02204130));
         break;
     }
     WORLDTRADE_CreateTimeIcon(p);
@@ -655,9 +655,9 @@ int WORLDTRADE_SERVER_SendUploadRequest(WorldtradeWork *p)
     *(u8 * *)&p->wm=(unsigned char *)NHTTP_RAP_Create(0x48,MYSTATUS_GetProfileId(p->ctx->myStatus),(char *)(((u8 *)&((struct WorldtradeWork *)p)->netBuf)));
     NHTTP_RAP_AllocPostData((struct _NHTTPRapSession *)(*(u8 * *)&p->wm),0x48,POKE_TOOL_GetPartyParamSize(),1);
     NHTTP_RAP_AppendPostData((struct _NHTTPRapSession *)(*(u8 * *)&p->wm),mon,POKE_TOOL_GetPartyParamSize());
-    if(NHTTP_RAP_CreatePostRequest((struct _NHTTPRapSession *)(*(u8 * *)&p->wm))==0) GF_PANIC_Fail(PM_LANG_JA(str_02203F58, str_ja_0220411C),PM_SRC_LINE(0, 0x2DF),PM_LANG_JA(str_02203F58, str_ja_02204134));
+    if(NHTTP_RAP_CreatePostRequest((struct _NHTTPRapSession *)(*(u8 * *)&p->wm))==0) GF_PANIC_Fail(PM_SRC_STR(str_02203F58, str_ja_0220411C),PM_SRC_LINE(0, 0x2DF),PM_SRC_STR(str_02203F58, str_ja_02204134));
     ready=NHTTP_RAP_StartConnection((struct _NHTTPRapSession *)(((struct WorldtradeWork *)p)->wm))==0;
-    if(ready==0) GF_PANIC_Fail(PM_LANG_JA(str_02203F58, str_ja_0220411C),PM_SRC_LINE(0, 0x2E2),PM_LANG_JA(str_02203F58, str_ja_02204134));
+    if(ready==0) GF_PANIC_Fail(PM_SRC_STR(str_02203F58, str_ja_0220411C),PM_SRC_LINE(0, 0x2E2),PM_SRC_STR(str_02203F58, str_ja_02204134));
     p->state=3;
     return 2;
 }

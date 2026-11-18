@@ -1101,7 +1101,7 @@ int WORLDTRADE_SEARCH_GetSelectedButton(WorldtradeWork *p)
         r = s->rightRow + 4;
     }
     if (r >= 7) {
-        GF_PANIC_Fail(PM_LANG_JA((void *)0x02203E2C, str_ja_02203FD8), PM_SRC_LINE(0, 0x676), PM_LANG_JA((void *)0x02203E2C, str_ja_02203FEC));
+        GF_PANIC_Fail(PM_SRC_STR((void *)0x02203E2C, str_ja_02203FD8), PM_SRC_LINE(0, 0x676), PM_SRC_STR((void *)0x02203E2C, str_ja_02203FEC));
     }
     return r;
 }

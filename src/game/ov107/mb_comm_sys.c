@@ -507,14 +507,14 @@ MbNetState *MB_COMM_SYS_CreateNetState(u16 heapId)
 {
     MbNetState *net;
 
-    net = GFL_HEAP_Alloc(heapId, sizeof(*net), 1, PM_LANG_JA(d_021F6E28, str_ja_021F6D94), 159);
+    net = GFL_HEAP_Alloc(heapId, sizeof(*net), 1, PM_SRC_STR(d_021F6E28, str_ja_021F6D94), 159);
     net->heapId = heapId;
     net->netStage = 0;
     net->headerBuffer = 0;
     net->flagsA.bits.lowerDataActive = 0;
     net->commStage = 0;
     net->nextCommStage = 0;
-    net->monBuffer = GFL_HEAP_Alloc(net->heapId, 6 * POKE_TOOL_GetBoxParamSize() + 4, 1, PM_LANG_JA(d_021F6E28, str_ja_021F6D94), 169);
+    net->monBuffer = GFL_HEAP_Alloc(net->heapId, 6 * POKE_TOOL_GetBoxParamSize() + 4, 1, PM_SRC_STR(d_021F6E28, str_ja_021F6D94), 169);
     return net;
 }
 
@@ -927,7 +927,7 @@ void MB_COMM_SYS_OnHeaderReceived(int a, int b, int c, MbNetState *net)
 void *MB_COMM_SYS_GetHeaderBuffer(void *a, MbNetState *net)
 {
     if (!net->headerBuffer)
-        net->headerBuffer = GFL_HEAP_Alloc(net->heapId, 8, 1, PM_LANG_JA(d_021F6E28, str_ja_021F6D94), 862);
+        net->headerBuffer = GFL_HEAP_Alloc(net->heapId, 8, 1, PM_SRC_STR(d_021F6E28, str_ja_021F6D94), 862);
     return net->headerBuffer;
 }
 

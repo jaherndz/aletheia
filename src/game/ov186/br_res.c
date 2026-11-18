@@ -192,7 +192,7 @@ extern const u32 d_022008E0[];
 void *BR_RES_Create(unsigned palSet,unsigned useCustomSet,u16 heapId)
 {
     struct BrRes *res;
-    res=GFL_HEAP_Alloc(heapId,sizeof(*res),0,PM_LANG_JA(d_02200D3C, str_ja_02200E8C),0x60);
+    res=GFL_HEAP_Alloc(heapId,sizeof(*res),0,PM_SRC_STR(d_02200D3C, str_ja_02200E8C),0x60);
     MI_CpuFill8(res,0,sizeof(*res));
     res->useCustomSet=useCustomSet;
     if(res->useCustomSet){res->palSet=palSet;if(res->palSet==1)res->palSet=0;}
@@ -366,7 +366,7 @@ void BR_RES_LoadSprite(struct BrRes *res, u32 spriteIndex, u32 heapId)
     sprite = &res->sprite[spriteIndex];
 
     if (res->spriteLoaded[spriteIndex] != 0) {
-        GF_PANIC_Fail(PM_LANG_JA(d_02200D48, str_ja_02200E8C), PM_SRC_LINE(0, 0x218), PM_LANG_JA(d_02200D48, str_ja_02200E98));
+        GF_PANIC_Fail(PM_SRC_STR(d_02200D48, str_ja_02200E8C), PM_SRC_LINE(0, 0x218), PM_SRC_STR(d_02200D48, str_ja_02200E98));
     }
 
     switch (spriteIndex) {
@@ -574,10 +574,10 @@ void BR_RES_LoadFadePalettes(struct BrRes *res,void *fade,unsigned short heapId)
     ARC_TOOL_DeleteHandle(h);
 }
 
-unsigned short BR_RES_GetPaletteFileId(unsigned palSet) { if(palSet>=8)GF_PANIC_Fail(PM_LANG_JA(d_02200D48, str_ja_02200E8C),PM_SRC_LINE(0, 0x409),PM_LANG_JA(d_02200D48, str_ja_02200EBC));return d_022008C0[palSet]; }
+unsigned short BR_RES_GetPaletteFileId(unsigned palSet) { if(palSet>=8)GF_PANIC_Fail(PM_SRC_STR(d_02200D48, str_ja_02200E8C),PM_SRC_LINE(0, 0x409),PM_SRC_STR(d_02200D48, str_ja_02200EBC));return d_022008C0[palSet]; }
 
-unsigned short BR_RES_GetCharFileId(unsigned palSet) { if(palSet>=8)GF_PANIC_Fail(PM_LANG_JA(d_02200D48, str_ja_02200E8C),PM_SRC_LINE(0, 0x424),PM_LANG_JA(d_02200D48, str_ja_02200EE0));return d_022008A0[palSet]; }
+unsigned short BR_RES_GetCharFileId(unsigned palSet) { if(palSet>=8)GF_PANIC_Fail(PM_SRC_STR(d_02200D48, str_ja_02200E8C),PM_SRC_LINE(0, 0x424),PM_SRC_STR(d_02200D48, str_ja_02200EE0));return d_022008A0[palSet]; }
 
-unsigned short BR_RES_GetScreenFileId(unsigned palSet) { if(palSet>=8)GF_PANIC_Fail(PM_LANG_JA(d_02200D48, str_ja_02200E8C),PM_SRC_LINE(0, 0x43F),PM_LANG_JA(d_02200D48, str_ja_02200F04));return d_02200880[palSet]; }
+unsigned short BR_RES_GetScreenFileId(unsigned palSet) { if(palSet>=8)GF_PANIC_Fail(PM_SRC_STR(d_02200D48, str_ja_02200E8C),PM_SRC_LINE(0, 0x43F),PM_SRC_STR(d_02200D48, str_ja_02200F04));return d_02200880[palSet]; }
 
-u16 BR_RES_GetSetParam(u32 palSet){if(palSet>=8)GF_PANIC_Fail(PM_LANG_JA(d_02200D48, str_ja_02200E8C),PM_SRC_LINE(0, 0x45A),PM_LANG_JA(d_02200D48, str_ja_02200F28));return *(const u32*)((char *)d_022008E0+palSet*4);}
+u16 BR_RES_GetSetParam(u32 palSet){if(palSet>=8)GF_PANIC_Fail(PM_SRC_STR(d_02200D48, str_ja_02200E8C),PM_SRC_LINE(0, 0x45A),PM_SRC_STR(d_02200D48, str_ja_02200F28));return *(const u32*)((char *)d_022008E0+palSet*4);}

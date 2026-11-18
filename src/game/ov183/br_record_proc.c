@@ -1180,7 +1180,7 @@ void BR_CODEIN_RecordStepSave(struct BrUtilTask *task,int *state,struct CodeinRe
     case 2: *state=3;break;
     case 3: work->saveCode=0;work->saveStatus=0;*state=4;break;
     case 4:
-        if(work->ctx->mode>3) GF_PANIC_Fail(PM_LANG_JA(d_021E3960, str_ja_021E3920), PM_SRC_LINE(0, 0x49E), PM_LANG_JA(d_021E3960, str_ja_021E3934));
+        if(work->ctx->mode>3) GF_PANIC_Fail(PM_SRC_STR(d_021E3960, str_ja_021E3920), PM_SRC_LINE(0, 0x49E), PM_SRC_STR(d_021E3960, str_ja_021E3934));
         if(GDS_RAP_SaveVideoSecured((void *)(work->ctx->gameData),work->ctx->mode,&work->saveCode,&work->saveStatus,work->heapId)==2) {
             BATTLE_REC_DecodeWork();
             work->savedActorSys=(int)BATTLE_REC_GetHeaderParam(work->header,5,0);

@@ -161,7 +161,7 @@ extern const UnionEffDrawStatus d_02180758;
  */
 UnionEffWork *UNION_EFF_Create(u16 heapId)
 {
-    UnionEffWork *work = GFL_HEAP_Alloc(heapId, sizeof(UnionEffWork), 1, PM_LANG_JA((char *)d_02180808, str_ja_02180A14), 0x8e);
+    UnionEffWork *work = GFL_HEAP_Alloc(heapId, sizeof(UnionEffWork), 1, PM_SRC_STR((char *)d_02180808, str_ja_02180A14), 0x8e);
     UNION_EFF_InitAnimGroup(&work->anim, heapId);
     UNION_EFF_InitIconGroup(&work->icon, heapId);
     return work;
@@ -230,7 +230,7 @@ void UNION_EFF_InitAnimGroup(UnionEffAnimGroup *anim, u32 heapId)
     anim->resModel = G3D_SYSTEM_CreateResourceArcHandle(arc, 0x14);
     anim->resAnime = G3D_SYSTEM_CreateResourceArcHandle(arc, 0x15);
     if (G3D_SYSTEM_TransVramTexture(anim->resModel) == 0) {
-        GF_PANIC_Fail(PM_LANG_JA(d_02180814, str_ja_02180A14), PM_SRC_LINE(0, 0x129), PM_LANG_JA(d_02180814, str_ja_02180A20));
+        GF_PANIC_Fail(PM_SRC_STR(d_02180814, str_ja_02180A14), PM_SRC_LINE(0, 0x129), PM_SRC_STR(d_02180814, str_ja_02180A20));
     }
     ARC_TOOL_DeleteHandle(arc);
 }
@@ -247,7 +247,7 @@ void UNION_EFF_ExitAnimGroup(UnionEffAnimGroup *anim)
 void UNION_EFF_AddAnimObj(UnionEffAnimGroup *anim, void *mmdl)
 {
     UnionEffObj *obj;
-    if (anim->resModel == NULL) GF_PANIC_Fail(PM_LANG_JA(d_02180814, str_ja_02180A14), PM_SRC_LINE(0, 0x14F), PM_LANG_JA(d_02180814, str_ja_02180A24));
+    if (anim->resModel == NULL) GF_PANIC_Fail(PM_SRC_STR(d_02180814, str_ja_02180A14), PM_SRC_LINE(0, 0x14F), PM_SRC_STR(d_02180814, str_ja_02180A24));
     obj = UNION_EFF_GetFreeAnimObj(anim->obj);
     UNION_EFF_CreateAnimObj(anim, obj, mmdl, anim->serial);
     (anim->serial)++;
@@ -332,10 +332,10 @@ void UNION_EFF_InitIconGroup(UnionEffIconGroup *icon, u32 heapId)
     icon->resModel[0] = G3D_SYSTEM_CreateResourceArcHandle(arc, 0x16);
     icon->resModel[1] = G3D_SYSTEM_CreateResourceArcHandle(arc, 0x17);
     if (G3D_SYSTEM_TransVramTexture(icon->resModel[0]) == 0) {
-        GF_PANIC_Fail(PM_LANG_JA(d_02180814, str_ja_02180A14), PM_SRC_LINE(0, 0x21A), PM_LANG_JA(d_02180814, str_ja_02180A20));
+        GF_PANIC_Fail(PM_SRC_STR(d_02180814, str_ja_02180A14), PM_SRC_LINE(0, 0x21A), PM_SRC_STR(d_02180814, str_ja_02180A20));
     }
     if (G3D_SYSTEM_TransVramTexture(icon->resModel[1]) == 0) {
-        GF_PANIC_Fail(PM_LANG_JA(d_02180814, str_ja_02180A14), PM_SRC_LINE(0, 0x21C), PM_LANG_JA(d_02180814, str_ja_02180A20));
+        GF_PANIC_Fail(PM_SRC_STR(d_02180814, str_ja_02180A14), PM_SRC_LINE(0, 0x21C), PM_SRC_STR(d_02180814, str_ja_02180A20));
     }
     ARC_TOOL_DeleteHandle(arc);
 }
@@ -353,10 +353,10 @@ void UNION_EFF_ExitIconGroup(UnionEffIconGroup *icon)
 void UNION_EFF_AddIconObj(UnionEffIconGroup *icon, void *mmdl, u32 iconKind)
 {
     if (icon->resModel[0] == NULL) {
-        GF_PANIC_Fail(PM_LANG_JA(d_02180814, str_ja_02180A14), PM_SRC_LINE(0, 0x241), PM_LANG_JA(d_02180814, str_ja_02180A44));
+        GF_PANIC_Fail(PM_SRC_STR(d_02180814, str_ja_02180A14), PM_SRC_LINE(0, 0x241), PM_SRC_STR(d_02180814, str_ja_02180A44));
     }
     if (icon->resModel[1] == NULL) {
-        GF_PANIC_Fail(PM_LANG_JA(d_02180814, str_ja_02180A14), PM_SRC_LINE(0, 0x242), PM_LANG_JA(d_02180814, str_ja_02180A68));
+        GF_PANIC_Fail(PM_SRC_STR(d_02180814, str_ja_02180A14), PM_SRC_LINE(0, 0x242), PM_SRC_STR(d_02180814, str_ja_02180A68));
     }
     UNION_EFF_CreateIconObj(icon, UNION_EFF_GetFreeIconObj(icon->obj), mmdl, icon->serial, iconKind);
     icon->serial = icon->serial + 1;

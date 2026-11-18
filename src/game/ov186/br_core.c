@@ -521,8 +521,8 @@ void BR_PROC_SYS_BuildChoiceRecord(struct BrProcArgChoice *out,struct BrProcSys 
             case 0: out->mode=1; break;
             case 1: case 2: case 3: out->mode=2; break;
 #if LANGUAGE == LANGUAGE_JAPANESE
-            case 4: GF_PANIC_Fail(PM_LANG_JA(d_02200D00, str_ja_02200CA0), PM_SRC_LINE(0, 0x2B7), PM_LANG_JA(d_02200D00, str_ja_02200CAC)); out->mode=7; break;
-            case 5: GF_PANIC_Fail(PM_LANG_JA(d_02200D00, str_ja_02200CA0), PM_SRC_LINE(0, 0x2BB), PM_LANG_JA(d_02200D00, str_ja_02200CAC)); out->mode=7; break;
+            case 4: GF_PANIC_Fail(PM_SRC_STR(d_02200D00, str_ja_02200CA0), PM_SRC_LINE(0, 0x2B7), PM_SRC_STR(d_02200D00, str_ja_02200CAC)); out->mode=7; break;
+            case 5: GF_PANIC_Fail(PM_SRC_STR(d_02200D00, str_ja_02200CA0), PM_SRC_LINE(0, 0x2BB), PM_SRC_STR(d_02200D00, str_ja_02200CAC)); out->mode=7; break;
 #else
             case 4: GF_PANIC_Fail(d_02200D00,0,d_02200D00); out->mode=7; break;
             case 5: GF_PANIC_Fail(d_02200D00,0,d_02200D00); out->mode=7; break;
@@ -585,7 +585,7 @@ void BR_PROC_SYS_BuildBattleRecord(struct BrProcArgBattle *out,struct BrProcSys 
         sys=source->gameState->shared->gameData;
         BATTLE_REC_Load(GAME_DATA_GetSaveControl(sys),0x59,&result,out->mode);
         if(result==1) {if(!out->mode) GDS_PROFILE_Init((struct GdsProfile *)BATTLE_REC_GetWork(),sys);}
-        else GF_PANIC_Fail(PM_LANG_JA(d_02200D00, str_ja_02200CA0),PM_SRC_LINE(0, 0x33F),PM_LANG_JA(d_02200D00, str_ja_02200CAC));
+        else GF_PANIC_Fail(PM_SRC_STR(d_02200D00, str_ja_02200CA0),PM_SRC_LINE(0, 0x33F),PM_SRC_STR(d_02200D00, str_ja_02200CAC));
         return;
     case 5:
         out->mode=4;out->recB=&source->gameState->data->cache;
@@ -724,7 +724,7 @@ void BR_PROC_SYS_BuildRecord(struct BrProcArgRecord *out,struct BrProcSys *sourc
         out->gameData=source->gameState->shared->gameData;
         out->rec=&source->gameState->data->records;
     } else {
-        GF_PANIC_Fail(PM_LANG_JA(d_02200D00, str_ja_02200CA0),PM_SRC_LINE(0, 0x4A5),PM_LANG_JA(d_02200D00, str_ja_02200CAC));
+        GF_PANIC_Fail(PM_SRC_STR(d_02200D00, str_ja_02200CA0),PM_SRC_LINE(0, 0x4A5),PM_SRC_STR(d_02200D00, str_ja_02200CAC));
     }
 }
 
@@ -739,7 +739,7 @@ void BR_PROC_SYS_BuildRecord2(struct BrProcArgResult *out,struct BrProcSys *sour
     unsigned a;
     int b;
     struct Unit *result;
-    if(type!=2) GF_PANIC_Fail(PM_LANG_JA(d_02200D00, str_ja_02200CA0),PM_SRC_LINE(0, 0x4CD),PM_LANG_JA(d_02200D00, str_ja_02200CB0));
+    if(type!=2) GF_PANIC_Fail(PM_SRC_STR(d_02200D00, str_ja_02200CA0),PM_SRC_LINE(0, 0x4CD),PM_SRC_STR(d_02200D00, str_ja_02200CB0));
     out->res=source->resources;
     out->fade=source->fade;
     out->net=source->net;

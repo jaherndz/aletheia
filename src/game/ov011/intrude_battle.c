@@ -710,7 +710,7 @@ int INTRUDE_COMM_PartyProcInit(struct Proc *proc, int unused, IntrudePartyParam 
     }
     if (count <= 0) {
         /* both strings are the empty string at 02177010 */
-        GF_PANIC_Fail(PM_LANG_JA((const char *)d_02177010, str_ja_02176E70), PM_SRC_LINE(0, 0x76), PM_LANG_JA((const char *)d_02177010, str_ja_02176E84));
+        GF_PANIC_Fail(PM_SRC_STR((const char *)d_02177010, str_ja_02176E70), PM_SRC_LINE(0, 0x76), PM_SRC_STR((const char *)d_02177010, str_ja_02176E84));
     }
     return 1;
 }

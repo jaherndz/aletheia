@@ -549,7 +549,7 @@ int WIFIBATTLEMATCH_NET_Create(void *a,void *b,void *obj,void *d)
     switch(((struct WifiBattleMatchParams *)obj)->save->commMode) {
     case 1: return d_021E2C74.create(a,b,obj,d);
     case 0: return d_021E2C80.create(a,b,obj,d);
-    default: GF_PANIC_Fail(PM_LANG_JA(d_021E2DE0, str_ja_021E2D20),PM_SRC_LINE(0, 0x66),PM_LANG_JA(d_021E2DE0, str_ja_021E2D38)); return 0;
+    default: GF_PANIC_Fail(PM_SRC_STR(d_021E2DE0, str_ja_021E2D20),PM_SRC_LINE(0, 0x66),PM_SRC_STR(d_021E2DE0, str_ja_021E2D38)); return 0;
     }
 }
 
@@ -559,14 +559,14 @@ int WIFIBATTLEMATCH_NET_Close(void *a,void *b,void *obj,void *d)
     switch(((struct WifiBattleMatchParams *)obj)->save->commMode) {
     case 1: result=d_021E2C74.close(a,b,obj,d); break;
     case 0: result=d_021E2C80.close(a,b,obj,d); break;
-    default: GF_PANIC_Fail(PM_LANG_JA(d_021E2DE0, str_ja_021E2D20),PM_SRC_LINE(0, 0x87),PM_LANG_JA(d_021E2DE0, str_ja_021E2D38)); break;
+    default: GF_PANIC_Fail(PM_SRC_STR(d_021E2DE0, str_ja_021E2D20),PM_SRC_LINE(0, 0x87),PM_SRC_STR(d_021E2DE0, str_ja_021E2D38)); break;
     }
     GFL_USE_StopAllSe();
     GF_OVERLAY_Unload((sptr)ov177_id);
     return result;
 }
 
-int WIFIBATTLEMATCH_NET_Other(void *a,void *b,void *obj,void *d) {switch(((struct WifiBattleMatchParams *)obj)->save->commMode) {case 1:return d_021E2C74.other(a,b,obj,d);case 0:return d_021E2C80.other(a,b,obj,d);default:GF_PANIC_Fail(PM_LANG_JA(d_021E2DE0, str_ja_021E2D20),PM_SRC_LINE(0, 0xAC),PM_LANG_JA(d_021E2DE0, str_ja_021E2D38));return 0;}}
+int WIFIBATTLEMATCH_NET_Other(void *a,void *b,void *obj,void *d) {switch(((struct WifiBattleMatchParams *)obj)->save->commMode) {case 1:return d_021E2C74.other(a,b,obj,d);case 0:return d_021E2C80.other(a,b,obj,d);default:GF_PANIC_Fail(PM_SRC_STR(d_021E2DE0, str_ja_021E2D20),PM_SRC_LINE(0, 0xAC),PM_SRC_STR(d_021E2DE0, str_ja_021E2D38));return 0;}}
 
 /*
  * prototype: 0203159C's matched void body leaves allocated r0 live;

@@ -159,7 +159,7 @@ CtvtCamView *CTVT_CAMVIEW_Create(void *work, u16 heapId)
     void *halfPicture;
     u8 i;
 
-    view = GFL_HEAP_Alloc(heapId, sizeof(CtvtCamView), 1, PM_LANG_JA(d_021C71E0, str_ja_021C7080), 0x67);
+    view = GFL_HEAP_Alloc(heapId, sizeof(CtvtCamView), 1, PM_SRC_STR(d_021C71E0, str_ja_021C7080), 0x67);
     arcHandle = COMM_TVT_SYS_GetArc(work);
     if (COMM_TVT_SYS_IsNetIdle() == 1) {
         view->heapId = 0x6E;
@@ -170,9 +170,9 @@ CtvtCamView *CTVT_CAMVIEW_Create(void *work, u16 heapId)
         CTVT_CAMERA_AllocFrames((Camera *)view->camera, 2, (u16)((view->heapId & 0x7FFF) | 0x8000));
         CTVT_CAMERA_SetFrameCallback((Camera *)view->camera, (void (*)(u32, u32))(((void *)CTVT_CAMVIEW_OnCameraFrame)), (uptr)work);
         CTVT_CAMERA_StartCapture(view->camera);
-        view->spareBufA = GFL_HEAP_Alloc((u16)((view->heapId & 0x7FFF) | 0x8000), 0xC000, 1, PM_LANG_JA(d_021C71E0, str_ja_021C7080), 0x76);
-        view->spareBufB = GFL_HEAP_Alloc((u16)((view->heapId & 0x7FFF) | 0x8000), 0xC000, 1, PM_LANG_JA(d_021C71E0, str_ja_021C7080), 0x77);
-        view->cropBuf = GFL_HEAP_Alloc((u16)((view->heapId & 0x7FFF) | 0x8000), 0xC000, 1, PM_LANG_JA(d_021C71E0, str_ja_021C7080), 0x78);
+        view->spareBufA = GFL_HEAP_Alloc((u16)((view->heapId & 0x7FFF) | 0x8000), 0xC000, 1, PM_SRC_STR(d_021C71E0, str_ja_021C7080), 0x76);
+        view->spareBufB = GFL_HEAP_Alloc((u16)((view->heapId & 0x7FFF) | 0x8000), 0xC000, 1, PM_SRC_STR(d_021C71E0, str_ja_021C7080), 0x77);
+        view->cropBuf = GFL_HEAP_Alloc((u16)((view->heapId & 0x7FFF) | 0x8000), 0xC000, 1, PM_SRC_STR(d_021C71E0, str_ja_021C7080), 0x78);
         view->noSignalFull = ARC_UTIL_LoadHandleMember(arcHandle, 0x19, 0, view->heapId);
         halfPicture = ARC_UTIL_LoadHandleMember(arcHandle, 0x1A, 0, view->heapId);
     } else {
@@ -191,7 +191,7 @@ CtvtCamView *CTVT_CAMVIEW_Create(void *work, u16 heapId)
     view->revealing = i;
     view->shutterReq0 = i;
     view->shutterReq1 = i;
-    view->screenBuf = GFL_HEAP_Alloc((u16)((heapId & 0x7FFF) | 0x8000), 0x18000, 1, PM_LANG_JA(d_021C71E0, str_ja_021C7080), 0x8C);
+    view->screenBuf = GFL_HEAP_Alloc((u16)((heapId & 0x7FFF) | 0x8000), 0x18000, 1, PM_SRC_STR(d_021C71E0, str_ja_021C7080), 0x8C);
     for (i = 0; i < 4; i++) {
         CTVT_CAMVIEW_SetWindowCurRect(&view->window[i], 0, 0, 0, 0);
         CTVT_CAMVIEW_SetWindowTargetRect(&view->window[i], 0, 0, 0, 0);

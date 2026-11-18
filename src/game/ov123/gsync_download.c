@@ -144,7 +144,7 @@ GsyncDownloadWork *GSYNC_DOWNLOAD_AllocWork(int heap, int fileBufferSize)
     GsyncDownloadWork *work;
     work = (GsyncDownloadWork *)GFL_HEAP_Alloc(heap, sizeof(GsyncDownloadWork), 1, sGsyncDownloadFileName, 0x88);
     if (gGsyncDownloadWork)
-        GF_PANIC_Fail(PM_LANG_JA(sGsyncDownloadAssertText, sGsyncDownloadFileName), PM_SRC_LINE(0, 0x8A), PM_LANG_JA(sGsyncDownloadAssertText, str_ja_021DA8F4));
+        GF_PANIC_Fail(PM_SRC_STR(sGsyncDownloadAssertText, sGsyncDownloadFileName), PM_SRC_LINE(0, 0x8A), PM_SRC_STR(sGsyncDownloadAssertText, str_ja_021DA8F4));
     gGsyncDownloadWork = work;
     work->fileBuffer = GFL_HEAP_Alloc(heap, fileBufferSize + 0x40, 0, sGsyncDownloadFileName, 0x8c);
     work->fileBufferSize = fileBufferSize;

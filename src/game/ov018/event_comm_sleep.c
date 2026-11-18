@@ -639,7 +639,7 @@ void EVENT_COMM_COMMON_StartMsgScriptEvent(struct GameEvent *event, EventCommCom
         work->msgId = sMsgIds125[src->msgIndex];
         WORDSET_SetSlotMyStatus(src->msgBox.wordSet, 0, src->myStatus);
     } else {
-        GF_PANIC_Fail(PM_LANG_JA(sEmptyTextB, str_ja_02183C50), PM_SRC_LINE(0, 0x69), PM_LANG_JA(sEmptyTextB, str_ja_02183C64));
+        GF_PANIC_Fail(PM_SRC_STR(sEmptyTextB, str_ja_02183C50), PM_SRC_LINE(0, 0x69), PM_SRC_STR(sEmptyTextB, str_ja_02183C64));
         return;
     }
     if (sys->localPeer.package.zoneId == 2)

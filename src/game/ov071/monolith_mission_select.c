@@ -912,7 +912,7 @@ void MONOLITH_TOOL_SLOT_SELECT_FreeMsgWindow(MonolithToolSlotSelect *screen)
 void MONOLITH_TOOL_SLOT_SELECT_ShowMessage(MonolithToolSlotSelect *screen, MonolithToolWork *work, int msgId)
 {
     if (screen->msgPrinter != 0)
-        GF_PANIC_Fail(PM_LANG_JA(d_021BABF4, str_ja_021BAAC8), PM_SRC_LINE(0, 0x2D8), PM_LANG_JA(d_021BABF4, str_ja_021BAAE4));
+        GF_PANIC_Fail(PM_SRC_STR(d_021BABF4, str_ja_021BAAC8), PM_SRC_LINE(0, 0x2D8), PM_SRC_STR(d_021BABF4, str_ja_021BAAE4));
     GF_FONT_SetTextColor(1, 2, 15);
     screen->msgString = MSGDATA_AllocString((void *)work->msgBank[3], msgId);
     screen->msgPrinter = PRINTSYS_PrintStream(screen->msgWindow, 0, 0, screen->msgString, work->font, MSG_SPEED_GetWait(), (void *)work->taskList, 10, 0x61, 15);
@@ -926,7 +926,7 @@ void MONOLITH_TOOL_SLOT_SELECT_HideMessage(MonolithToolSlotSelect *screen)
     void *window;
     window = BMP_WIN_GetBmp(screen->msgWindow);
     if (screen->msgPrinter == 0)
-        GF_PANIC_Fail(PM_LANG_JA(d_021BABF4, str_ja_021BAAC8), PM_SRC_LINE(0, 0x2FE), PM_LANG_JA(d_021BABF4, str_ja_021BAB00));
+        GF_PANIC_Fail(PM_SRC_STR(d_021BABF4, str_ja_021BAAC8), PM_SRC_LINE(0, 0x2FE), PM_SRC_STR(d_021BABF4, str_ja_021BAB00));
     PRINTSYS_PrintStreamDelete(screen->msgPrinter);
     screen->msgPrinter = 0;
     STRBUF_Delete(screen->msgString);

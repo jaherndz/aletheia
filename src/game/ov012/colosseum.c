@@ -274,10 +274,10 @@ ColosseumWork *COLOSSEUM_Create(const struct GameData *gameData, void *gameSyste
     u32 flag;
 
     selfNetId = GFL_NET_GetHandleNetID(GFL_NET_HANDLE_GetCurrentHandle());
-    work = GFL_HEAP_Alloc(COLOSSEUM_HEAP_ID, sizeof(ColosseumWork), 1, PM_LANG_JA(gColosseumAllocFile, str_ja_02175698), 0x35);
+    work = GFL_HEAP_Alloc(COLOSSEUM_HEAP_ID, sizeof(ColosseumWork), 1, PM_SRC_STR(gColosseumAllocFile, str_ja_02175698), 0x35);
     work->commPlayer = COMM_PLAYER_Create(COLOSSEUM_PLAYER_MAX, gameSystem, COLOSSEUM_HEAP_ID, 0);
     for (i = 0; i < 4; i++) {
-        work->trainerCard[i] = GFL_HEAP_Alloc(COLOSSEUM_HEAP_ID, 0x678, 1, PM_LANG_JA(gColosseumAllocFile, str_ja_02175698), 0x38);
+        work->trainerCard[i] = GFL_HEAP_Alloc(COLOSSEUM_HEAP_ID, 0x678, 1, PM_SRC_STR(gColosseumAllocFile, str_ja_02175698), 0x38);
         work->party[i] = POKEPARTY_Create(COLOSSEUM_HEAP_ID);
     }
     for (i = 0; i < 4; i++) {
@@ -487,7 +487,7 @@ void COLOSSEUM_SetupBattleInfo(ColosseumWork *work, struct GameSystem *gameSyste
         count++;
     }
     if (count != 2 && count != 4) {
-        GF_PANIC_Fail(PM_LANG_JA(gColosseumAssertText2, str_ja_02175698), PM_SRC_LINE(0, 0x19C), PM_LANG_JA(gColosseumAssertText2, str_ja_021756A4));
+        GF_PANIC_Fail(PM_SRC_STR(gColosseumAssertText2, str_ja_02175698), PM_SRC_LINE(0, 0x19C), PM_SRC_STR(gColosseumAssertText2, str_ja_021756A4));
     }
     selfPosition = work->battlePosition[GFL_NET_GetHandleNetID(GFL_NET_HANDLE_GetCurrentHandle())];
     for (i = 0; i < count; i++) {
@@ -501,7 +501,7 @@ void COLOSSEUM_SetupBattleInfo(ColosseumWork *work, struct GameSystem *gameSyste
         }
         slot = base + (position >> 1);
         if (slot >= count) {
-            GF_PANIC_Fail(PM_LANG_JA(gColosseumAssertText2, str_ja_02175698), PM_SRC_LINE(0, 0x1AF), PM_LANG_JA(gColosseumAssertText2, str_ja_021756C8));
+            GF_PANIC_Fail(PM_SRC_STR(gColosseumAssertText2, str_ja_02175698), PM_SRC_LINE(0, 0x1AF), PM_SRC_STR(gColosseumAssertText2, str_ja_021756C8));
         }
         COLOSSEUM_SetupBattleMember(work, &out->member[slot], (u8)i, heapId);
     }

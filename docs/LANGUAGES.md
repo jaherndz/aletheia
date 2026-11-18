@@ -108,16 +108,19 @@ source builds both byte-identical ([ROMS.md](ROMS.md)).
 - A failed check passes the file name, the line and a message string, where the other
   languages pass empty strings. The heap allocations of a file use the same file-name string.
 
-`version.h` has three more names for these sites:
+`version.h` has four more names for these sites:
 
 | Name | Meaning |
 |---|---|
 | `PM_SRC_LINE(english, japanese)` | a source line number (failed checks, heap allocations) |
+| `PM_SRC_STR(english, japanese)` | a source string beside it: the file name or expression of a failed check, the file name of a heap allocation |
 | `PM_LANG_JA(english, japanese)` | any other value that differs only in Japanese |
 | `PM_LANG_HALF_WIDTH_DIGITS` | the digit width of word-set numbers: 0 in Japanese, 1 otherwise |
 
 In the PC build with the run-time language, `PM_SRC_LINE` and `PM_LANG_HALF_WIDTH_DIGITS` read
-`g_pm_language` like `PM_LANGUAGE_IS`; the DS builds keep them constants. `PM_LANG_JA` and the
+`g_pm_language` like `PM_LANGUAGE_IS`; the DS builds keep them constants. `PM_SRC_STR` keeps the
+English value on PC: only the panic hook and the heap's site stamp receive these strings, and
+the European cartridges already pass the empty English ones. `PM_LANG_JA` and the
 `#if LANGUAGE == LANGUAGE_JAPANESE` branches are still fixed at build time, so the run-time
 build does not play the Japanese cartridges yet.
 

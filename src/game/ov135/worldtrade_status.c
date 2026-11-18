@@ -67,7 +67,7 @@ int WORLDTRADE_STATUS_Open(WorldtradeWork *p)
 {
     PokeStatusRequest *r;
     WORLDTRADE_ExitPlanes(p);
-    p->statusReq=GFL_HEAP_Alloc(0x48,sizeof(PokeStatusRequest),0,PM_LANG_JA(str_02203E30,str_ja_02203FF4),0x4C);
+    p->statusReq=GFL_HEAP_Alloc(0x48,sizeof(PokeStatusRequest),0,PM_SRC_STR(str_02203E30,str_ja_02203FF4),0x4C);
     MI_CpuFill8(p->statusReq,0,sizeof(PokeStatusRequest));
     r=p->statusReq;
     r->config=p->ctx->statusConfig;

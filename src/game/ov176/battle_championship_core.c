@@ -284,7 +284,7 @@ void BATTLE_CHAMPIONSHIP_FLOW_FadeIn(WifibattlematchCallback *proc, int *state, 
     case 0: FADE_Start(3,16,0,0); *state=1; break;
     case 1: if(!FADE_IsActive()) *state=2; break;
     case 2: WIFIBATTLEMATCH_UTIL_SetCallback(proc, BATTLE_CHAMPIONSHIP_FLOW_SelectFlow); break;
-    default: GF_PANIC_Fail(PM_LANG_JA(d_0217E5E0, str_ja_0217E560),PM_SRC_LINE(0, 0x160),PM_LANG_JA(d_0217E5E0, str_ja_0217E57C)); break;
+    default: GF_PANIC_Fail(PM_SRC_STR(d_0217E5E0, str_ja_0217E560),PM_SRC_LINE(0, 0x160),PM_SRC_STR(d_0217E5E0, str_ja_0217E57C)); break;
     }
 }
 
@@ -300,7 +300,7 @@ void BATTLE_CHAMPIONSHIP_FLOW_FadeOut(WifibattlematchCallback *proc, int *state,
         break;
     case 1: if(!FADE_IsActive()) *state=2; break;
     case 2: WIFIBATTLEMATCH_UTIL_SetCallback(proc, BATTLE_CHAMPIONSHIP_FLOW_End); break;
-    default: GF_PANIC_Fail(PM_LANG_JA(d_0217E5E0, str_ja_0217E560),PM_SRC_LINE(0, 0x191),PM_LANG_JA(d_0217E5E0, str_ja_0217E57C)); break;
+    default: GF_PANIC_Fail(PM_SRC_STR(d_0217E5E0, str_ja_0217E560),PM_SRC_LINE(0, 0x191),PM_SRC_STR(d_0217E5E0, str_ja_0217E57C)); break;
     }
 }
 

@@ -408,8 +408,8 @@ int DWC_RAP_CreateWork(void *userData, void *friendList)
 
     netInit = &GFL_NET_GetInitParam()->init;
     if (_pRapWork != 0)
-        GF_PANIC_Fail(PM_LANG_JA(_sAssertEmpty, str_ja_021A199C), PM_SRC_LINE(0, 0x125), PM_LANG_JA(_sAssertEmpty, str_ja_021A19A8));
-    _pRapWork = GFL_NET_AllocAligned(netInit->heapId, sizeof(DwcRapWork), PM_LANG_JA(_sDwcRapFile, str_ja_021A199C), 302);
+        GF_PANIC_Fail(PM_SRC_STR(_sAssertEmpty, str_ja_021A199C), PM_SRC_LINE(0, 0x125), PM_SRC_STR(_sAssertEmpty, str_ja_021A19A8));
+    _pRapWork = GFL_NET_AllocAligned(netInit->heapId, sizeof(DwcRapWork), PM_SRC_STR(_sDwcRapFile, str_ja_021A199C), 302);
     for (slot = 0; slot < 32; slot++)
         _pRapWork->deletedFriendIndex[slot] = -1;
     DWC_RAP_SetState(DWC_RAP_STATE_START);
@@ -563,16 +563,16 @@ int DWC_RAP_StartMatchWithKey(void *matchValue, int maxPlayers, int useFilter, i
     int slot;
 
     if (_pRapWork == 0)
-        GF_PANIC_Fail(PM_LANG_JA(_sAssertEmpty, str_ja_021A199C), PM_SRC_LINE(0, 0x273), PM_LANG_JA(_sAssertEmpty, str_ja_021A19C0));
+        GF_PANIC_Fail(PM_SRC_STR(_sAssertEmpty, str_ja_021A199C), PM_SRC_LINE(0, 0x273), PM_SRC_STR(_sAssertEmpty, str_ja_021A19C0));
     if (_pRapWork->state != DWC_RAP_STATE_IDLE)
         return 0;
     DWC_RAP_FreeRecvBuffers();
     if (DWC_AddMatchKeyString(0, _sMatchKey, matchValue) == 0)
-        GF_PANIC_Fail(PM_LANG_JA(_sAssertEmpty, str_ja_021A199C), PM_SRC_LINE(0, 0x28A), PM_LANG_JA(_sAssertEmpty, str_ja_021A19D4));
+        GF_PANIC_Fail(PM_SRC_STR(_sAssertEmpty, str_ja_021A199C), PM_SRC_LINE(0, 0x28A), PM_SRC_STR(_sAssertEmpty, str_ja_021A19D4));
     MI_CpuFill8(_pRapWork->matchFilter, 0, 0x80);
     sprintf((char *)_pRapWork->matchFilter, _sMatchFilterFormat, _sMatchKey, matchValue);
     if ((int)GF_STANDARD_GetStringLength((const u8 *)_pRapWork->matchFilter) >= 0x80)
-        GF_PANIC_Fail(PM_LANG_JA(_sAssertEmpty, str_ja_021A199C), PM_SRC_LINE(0, 0x28F), PM_LANG_JA(_sAssertEmpty, str_ja_021A19DC));
+        GF_PANIC_Fail(PM_SRC_STR(_sAssertEmpty, str_ja_021A199C), PM_SRC_LINE(0, 0x28F), PM_SRC_STR(_sAssertEmpty, str_ja_021A19DC));
     if (useFilter)
         DWC_AddMatchKeyString(1, _pRapWork->matchFilter, _pRapWork->matchFilter);
     for (slot = 0; slot < maxPlayers; slot++)
@@ -604,7 +604,7 @@ int DWC_RAP_StartMatchWithFilter(char *filter, int maxPlayers, DWCEvalCallback e
     int slot;
 
     if (_pRapWork == 0)
-        GF_PANIC_Fail(PM_LANG_JA(_sAssertEmpty, str_ja_021A199C), PM_SRC_LINE(0, 0x2D0), PM_LANG_JA(_sAssertEmpty, str_ja_021A19C0));
+        GF_PANIC_Fail(PM_SRC_STR(_sAssertEmpty, str_ja_021A199C), PM_SRC_LINE(0, 0x2D0), PM_SRC_STR(_sAssertEmpty, str_ja_021A19C0));
     if (_pRapWork->state != DWC_RAP_STATE_IDLE)
         return 0;
     DWC_RAP_FreeRecvBuffers();
@@ -918,7 +918,7 @@ void DWC_RAP_OnReceive(unsigned char aid, unsigned char * dataArg, int size, voi
     u32 header = data[0] | ((data[3] << 24) | (data[2] << 16) | (data[1] << 8));
 
     if (aid >= 2)
-        GF_PANIC_Fail(PM_LANG_JA(_sAssertEmpty, str_ja_021A199C), PM_SRC_LINE(0, 0x59B), PM_LANG_JA(_sAssertEmpty, str_ja_021A1A40));
+        GF_PANIC_Fail(PM_SRC_STR(_sAssertEmpty, str_ja_021A199C), PM_SRC_LINE(0, 0x59B), PM_SRC_STR(_sAssertEmpty, str_ja_021A1A40));
     if (aid < 2) {
         _pRapWork->peerAlive = 1;
         if ((u8)header == 1) {
@@ -1336,7 +1336,7 @@ int DWC_RAP_GetErrorMessageClass(int errorCode, int errorType)
     case 6:
         return 11;
     default:
-        GF_PANIC_Fail(PM_LANG_JA(_sAssertEmpty, str_ja_021A199C), PM_SRC_LINE(0, 0x84D), PM_LANG_JA(_sAssertEmpty, str_ja_021A1A48));
+        GF_PANIC_Fail(PM_SRC_STR(_sAssertEmpty, str_ja_021A199C), PM_SRC_LINE(0, 0x84D), PM_SRC_STR(_sAssertEmpty, str_ja_021A1A48));
         break;
     case 7:
         return 15;
@@ -1430,7 +1430,7 @@ void DWC_RAP_PollFriendStatus(void)
 int DWC_RAP_SetOwnStatus(char *data, int size)
 {
     if (size > 32)
-        GF_PANIC_Fail(PM_LANG_JA(_sAssertEmpty, str_ja_021A199C), PM_SRC_LINE(0, 0x8F9), PM_LANG_JA(_sAssertEmpty, str_ja_021A1A4C));
+        GF_PANIC_Fail(PM_SRC_STR(_sAssertEmpty, str_ja_021A199C), PM_SRC_LINE(0, 0x8F9), PM_SRC_STR(_sAssertEmpty, str_ja_021A1A4C));
     return DWC_SetOwnStatusData(data, size);
 }
 
@@ -1627,7 +1627,7 @@ void DWC_RAP_AllocRecvBuffer(u32 aid)
     if (_pRapWork->recvBuffer[aid] == 0) {
         u32 bufSize = 0x1000;
         _pRapWork->recvBuffer[aid] =
-            GFL_NET_AllocAligned(netInit->heapId, bufSize, PM_LANG_JA((const char *)_sDwcRapFile, str_ja_021A199C), PM_SRC_LINE(0xb74, 0xb73));
+            GFL_NET_AllocAligned(netInit->heapId, bufSize, PM_SRC_STR((const char *)_sDwcRapFile, str_ja_021A199C), PM_SRC_LINE(0xb74, 0xb73));
         DWC_SetRecvBuffer(aid, _pRapWork->recvBuffer[aid], bufSize);
     }
 }

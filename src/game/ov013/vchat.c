@@ -479,13 +479,13 @@ void VCT_MAIN_Start(int heapId, int codecMode, int peerCount)
     if (NNS_SndStrmSetup((struct SndStrm *)gVctWork->audioStream, 1, (uptr)gVctWork->playbackBuffers, (unsigned int)VCT_BUFFER_BYTES,
                       (unsigned int)(APP_ENV_IsRunOnTwl() ? 0x40 : 0x41), 2, (NNSSndStrmCallback)VCT_MAIN_StreamCallback,
                       (uptr)gVctWork) == 0) {
-        GF_PANIC_Fail(PM_LANG_JA(VCT_ERROR_TEXT, str_ja_021B3AA0), PM_SRC_LINE(0, 0x261), PM_LANG_JA(VCT_ERROR_TEXT, str_ja_021B3AA8));
+        GF_PANIC_Fail(PM_SRC_STR(VCT_ERROR_TEXT, str_ja_021B3AA0), PM_SRC_LINE(0, 0x261), PM_SRC_STR(VCT_ERROR_TEXT, str_ja_021B3AA8));
     }
 #else
     if (NNS_SndStrmSetup((struct SndStrm *)gVctWork->audioStream, 1, (uptr)gVctWork->playbackBuffers, (unsigned int)VCT_BUFFER_BYTES,
                       (unsigned int)(APP_ENV_IsRunOnTwl() ? 0x40 : 0x41), 2, VCT_MAIN_StreamCallbackNns,
                       (uptr)gVctWork) == 0) {
-        GF_PANIC_Fail(PM_LANG_JA(VCT_ERROR_TEXT, str_ja_021B3AA0), PM_SRC_LINE(0, 0x261), PM_LANG_JA(VCT_ERROR_TEXT, str_ja_021B3AA8));
+        GF_PANIC_Fail(PM_SRC_STR(VCT_ERROR_TEXT, str_ja_021B3AA0), PM_SRC_LINE(0, 0x261), PM_SRC_STR(VCT_ERROR_TEXT, str_ja_021B3AA8));
     }
 #endif
     gVctWork->linkState = 0;
@@ -495,7 +495,7 @@ void VCT_MAIN_Start(int heapId, int codecMode, int peerCount)
     param.peerCount = peerCount;
     param.localId = DWC_GetMyAID();
     if (param.localId == -1) {
-        GF_PANIC_Fail(PM_LANG_JA(VCT_ERROR_TEXT, str_ja_021B3AA0), PM_SRC_LINE(0, 0x275), PM_LANG_JA(VCT_ERROR_TEXT, str_ja_021B3AAC));
+        GF_PANIC_Fail(PM_SRC_STR(VCT_ERROR_TEXT, str_ja_021B3AA0), PM_SRC_LINE(0, 0x275), PM_SRC_STR(VCT_ERROR_TEXT, str_ja_021B3AAC));
     }
     if (gVctWork->mode == 3) {
         param.eventCallback = VCT_MAIN_OnEventGroup;

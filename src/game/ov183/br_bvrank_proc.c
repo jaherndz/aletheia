@@ -1525,7 +1525,7 @@ void BR_CODEIN_StatSetup(struct BrUtilTask *task,int *state,struct CodeinStatWor
     MI_CpuFill8(&config,0,8);
     config.a=80;config.b=168;config.c=0;config.flag=1;
     if(!BR_RES_GetSprite((struct BrRes *)((void *)((work->statCtx->res))), 6, (void *)((BrCodeinTriple *)&triple)))
-        GF_PANIC_Fail(PM_LANG_JA((const char *)d_021E3964, str_ja_021E3964), PM_SRC_LINE(0, 0x18B), PM_LANG_JA((const char *)d_021E3964, str_ja_021E3978));
+        GF_PANIC_Fail(PM_SRC_STR((const char *)d_021E3964, str_ja_021E3964), PM_SRC_LINE(0, 0x18B), PM_SRC_STR((const char *)d_021E3964, str_ja_021E3978));
     work->backButton=BR_BTN_CreateFromMessage((void *)&config,4,96,1,(void *)((work->statCtx->unit)),(void *)(work->oamSys),(void *)font,(struct MsgBank *)bank,(void *)&triple,work->heapId);
     work->headerText=BR_UTIL_Create(4,11,6,10,4,14,work->printQue,work->heapId);
     BR_UTIL_SetTextFromMessage(work->headerText,(void *)bank,0x55,(void *)font,0x3da0);
@@ -1606,7 +1606,7 @@ void BR_CODEIN_StatStepMenu(struct BrUtilTask *task, int *state, struct CodeinSt
             Point args;
             selection=BR_CODEIN_SearchGetHitId(&work->list);
             if (selection>=work->statCtx->data->cache.itemCount)
-                GF_PANIC_Fail(PM_LANG_JA(d_021E3964, str_ja_021E3964), PM_SRC_LINE(0, 0x237), PM_LANG_JA(d_021E3964, str_ja_021E397C));
+                GF_PANIC_Fail(PM_SRC_STR(d_021E3964, str_ja_021E3964), PM_SRC_LINE(0, 0x237), PM_SRC_STR(d_021E3964, str_ja_021E397C));
             work->statCtx->data->cache.selection=selection;
             BR_PROC_SYS_PushEntry(work->statCtx->proc,2);
             BR_UTIL_SetTaskStep(task,BR_CODEIN_StatStepFadeOut);
@@ -1628,7 +1628,7 @@ void BR_CODEIN_SearchStep(struct BrUtilTask *task,u32 *state,struct CodeinStatWo
         case 1: mode=6; break;
         case 2: mode=7; break;
         case 3: initial=*(Point *)&work->statCtx->valueA; mode=4; break;
-        default: GF_PANIC_Fail(PM_LANG_JA(d_021E3964, str_ja_021E3964), PM_SRC_LINE(0, 0x27E), PM_LANG_JA(d_021E3964, str_ja_021E39A8)); break;
+        default: GF_PANIC_Fail(PM_SRC_STR(d_021E3964, str_ja_021E3964), PM_SRC_LINE(0, 0x27E), PM_SRC_STR(d_021E3964, str_ja_021E39A8)); break;
         }
         MI_CpuFill8(&work->statCtx->data->cache,0,sizeof(struct BrRecCache));
         work->frames=0;
@@ -1652,7 +1652,7 @@ void BR_CODEIN_SearchStep(struct BrUtilTask *task,u32 *state,struct CodeinStatWo
             case 1: success=BR_NET_GetSearchResultsForRanking(work->statCtx->net,(char *)data,30,(void *)((char *)data+offset)); break;
             case 2: success=BR_NET_GetSearchResultsForNewest(work->statCtx->net,(char *)data,30,(void *)((char *)data+offset)); break;
             case 3: success=BR_NET_GetSearchResults(work->statCtx->net,(char *)data,30,(void *)((char *)data+offset)); break;
-            default: GF_PANIC_Fail(PM_LANG_JA(d_021E3964, str_ja_021E3964), PM_SRC_LINE(0, 0x2B1), PM_LANG_JA(d_021E3964, str_ja_021E39A8)); break;
+            default: GF_PANIC_Fail(PM_SRC_STR(d_021E3964, str_ja_021E3964), PM_SRC_LINE(0, 0x2B1), PM_SRC_STR(d_021E3964, str_ja_021E39A8)); break;
             }
             if(success) {
                 for(i=0;i<(int)work->statCtx->data->cache.itemCount;i++) {

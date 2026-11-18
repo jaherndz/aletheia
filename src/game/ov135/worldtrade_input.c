@@ -753,7 +753,7 @@ WorldtradeMenu *WORLDTRADE_INPUT_MenuCreate(WorldtradeInputInit *init, u32 layer
 {
     WorldtradeMenu *m;
 
-    m = GFL_HEAP_Alloc(0x48, sizeof(WorldtradeMenu), 0, PM_LANG_JA((const char *)g_02203CD8, str_ja_02203E88), PM_SRC_LINE(0x336, 0x2c5));
+    m = GFL_HEAP_Alloc(0x48, sizeof(WorldtradeMenu), 0, PM_SRC_STR((const char *)g_02203CD8, str_ja_02203E88), PM_SRC_LINE(0x336, 0x2c5));
     m->wins = init->wins;
     m->initArg = init->initArg;
     m->cursor = init->cursor;
@@ -977,7 +977,7 @@ int WORLDTRADE_INPUT_UpdateCategoryGrid(WorldtradeMenu *p, u8 *enable)
             return -2;
         }
         if (p->pos >= WTMENU_GRID_WINS) {
-            GF_PANIC_Fail(PM_LANG_JA((void *)0x02203CEC, str_ja_02203E88), PM_SRC_LINE(0, 0x4f0), PM_LANG_JA((void *)0x02203CEC, str_ja_02203E9C));
+            GF_PANIC_Fail(PM_SRC_STR((void *)0x02203CEC, str_ja_02203E88), PM_SRC_LINE(0, 0x4f0), PM_SRC_STR((void *)0x02203CEC, str_ja_02203E9C));
         }
         if (enable == 0 || enable[p->pos] != 0) {
             GFL_USE_PlaySeDefaultVolume(0x54C);

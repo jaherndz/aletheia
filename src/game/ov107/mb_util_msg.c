@@ -232,7 +232,7 @@ MbMsgWork *MB_UTIL_MSG_Create(u16 heapId, u32 bgFrame, u32 menuBgFrame, u32 msgF
     int cursor;
 #endif
 
-    w = (MbMsgWork *)GFL_HEAP_Alloc(heapId, sizeof(MbMsgWork), 1, PM_LANG_JA(d_021F6E38, str_ja_021F6DA4), PM_SRC_LINE(0x66, 0x64));
+    w = (MbMsgWork *)GFL_HEAP_Alloc(heapId, sizeof(MbMsgWork), 1, PM_SRC_STR(d_021F6E38, str_ja_021F6DA4), PM_SRC_LINE(0x66, 0x64));
     w->heapId = heapId;
     w->bgFrame = bgFrame;
     w->menuBgFrame = menuBgFrame;

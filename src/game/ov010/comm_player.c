@@ -337,7 +337,7 @@ u16 SYMBOL_MAP_GetEntryPage(Entry32 *list, Entry32 *out, u32 cap, int page, u8 *
 
 void *COMM_PLAYER_Create(int playerMax, void *gameSystem, u16 heapId, int sysOption) {
     CommPlayerWork *work;
-    work = GFL_HEAP_Alloc(heapId, sizeof(CommPlayerWork), 1, PM_LANG_JA(d_02172A18, str_ja_021727A0), 97);
+    work = GFL_HEAP_Alloc(heapId, sizeof(CommPlayerWork), 1, PM_SRC_STR(d_02172A18, str_ja_021727A0), 97);
     work->playerMax = playerMax;
     work->gameSystem = gameSystem;
     work->heapId = heapId;
@@ -354,7 +354,7 @@ void COMM_PLAYER_Delete(void *gameSystem, CommPlayerWork *work)
         if (GAMESYSTEM_IsFieldMapActive(gameSystem) == 1)
             FIELD_COMM_ACTOR_CTRL_Delete(work->playerSys);
         else
-            GF_PANIC_Fail(PM_LANG_JA(d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x83), PM_LANG_JA(d_02172A28, str_ja_021727B0));
+            GF_PANIC_Fail(PM_SRC_STR(d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x83), PM_SRC_STR(d_02172A28, str_ja_021727B0));
     }
     GFL_HEAP_Free(work);
 }
@@ -418,7 +418,7 @@ void COMM_PLAYER_Suspend(CommPlayerWork *work)
 #endif
     int i;
     if (GAMESYSTEM_IsFieldMapActive(work->gameSystem) != 1)
-        GF_PANIC_Fail(PM_LANG_JA((const char *)d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0xFB), PM_LANG_JA((const char *)d_02172A28, str_ja_021727B4));
+        GF_PANIC_Fail(PM_SRC_STR((const char *)d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0xFB), PM_SRC_STR((const char *)d_02172A28, str_ja_021727B4));
     if (work->playerSys != 0) {
         i = 0;
 #ifdef __MWERKS__
@@ -447,9 +447,9 @@ void COMM_PLAYER_Resume(CommPlayerWork *work)
 #endif
     int i;
     if (GAMESYSTEM_IsFieldMapActive(work->gameSystem) != 1)
-        GF_PANIC_Fail(PM_LANG_JA((const char *)d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x11A), PM_LANG_JA((const char *)d_02172A28, str_ja_021727B4));
+        GF_PANIC_Fail(PM_SRC_STR((const char *)d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x11A), PM_SRC_STR((const char *)d_02172A28, str_ja_021727B4));
     if (work->playerSys != 0)
-        GF_PANIC_Fail(PM_LANG_JA((const char *)d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x11B), PM_LANG_JA((const char *)d_02172A28, str_ja_021727E4));
+        GF_PANIC_Fail(PM_SRC_STR((const char *)d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x11B), PM_SRC_STR((const char *)d_02172A28, str_ja_021727E4));
     work->playerSys = FIELD_COMM_ACTOR_CTRL_Create(work->playerMax, FIELDMAP_GetMmdlSys(GAMESYSTEM_GetFieldMap(work->gameSystem)), work->heapId, work->sysOption);
     MI_CpuFill8(&package, 0, 0x14);
 #ifdef __MWERKS__
@@ -478,9 +478,9 @@ void COMM_PLAYER_ClearPending(CommPlayerWork *work)
 #endif
     int i;
     if (GAMESYSTEM_IsFieldMapActive(work->gameSystem) != 1)
-        GF_PANIC_Fail(PM_LANG_JA((const char *)d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x139), PM_LANG_JA((const char *)d_02172A28, str_ja_021727B4));
+        GF_PANIC_Fail(PM_SRC_STR((const char *)d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x139), PM_SRC_STR((const char *)d_02172A28, str_ja_021727B4));
     if (work->playerSys != 0)
-        GF_PANIC_Fail(PM_LANG_JA((const char *)d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x13A), PM_LANG_JA((const char *)d_02172A28, str_ja_021727E4));
+        GF_PANIC_Fail(PM_SRC_STR((const char *)d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x13A), PM_SRC_STR((const char *)d_02172A28, str_ja_021727E4));
     i = 0;
 #ifdef __MWERKS__
     flags = (CommPlayerFlagView *)((char *)work + 0x1C);
@@ -498,14 +498,14 @@ void COMM_PLAYER_ClearPending(CommPlayerWork *work)
  * address lever: CommPlayerRowView supplies the +28 load offset after unsigned scaling; combining +28 with the scaled index folds index+1 and changes the instructions.
  */
 int COMM_PLAYER_CheckOccupy(CommPlayerWork *work, int index) {
-    if (work == 0 || index >= 4) GF_PANIC_Fail(PM_LANG_JA(d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x15D), PM_LANG_JA(d_02172A28, str_ja_021727FC));
+    if (work == 0 || index >= 4) GF_PANIC_Fail(PM_SRC_STR(d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x15D), PM_SRC_STR(d_02172A28, str_ja_021727FC));
     return work->entries[index].used;
 }
 
 u16 COMM_PLAYER_GetObjCode(CommPlayerWork *work, int index)
 {
     if (work == 0 || index >= 4 || work->entries[index].used != 1)
-        GF_PANIC_Fail(PM_LANG_JA((const char *)d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x16D), PM_LANG_JA((const char *)d_02172A28, str_ja_02172824));
+        GF_PANIC_Fail(PM_SRC_STR((const char *)d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x16D), PM_SRC_STR((const char *)d_02172A28, str_ja_02172824));
     return work->entries[index].objCode;
 }
 
@@ -618,9 +618,9 @@ int COMM_PLAYER_SetEffect(CommPlayerWork *work, int index)
 struct Mmdl *COMM_PLAYER_GetMmdl(CommPlayerWork *work, int index)
 {
     if (work->playerSys == 0)
-        GF_PANIC_Fail(PM_LANG_JA((const char *)d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x212), PM_LANG_JA((const char *)d_02172A28, str_ja_0217286C));
+        GF_PANIC_Fail(PM_SRC_STR((const char *)d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x212), PM_SRC_STR((const char *)d_02172A28, str_ja_0217286C));
     if (work->entries[index].used != 1)
-        GF_PANIC_Fail(PM_LANG_JA((const char *)d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x213), PM_LANG_JA((const char *)d_02172A28, str_ja_02172884));
+        GF_PANIC_Fail(PM_SRC_STR((const char *)d_02172A28, str_ja_021727A0), PM_SRC_LINE(0, 0x213), PM_SRC_STR((const char *)d_02172A28, str_ja_02172884));
     return FIELD_COMM_ACTOR_CTRL_GetMmdl(work->playerSys, index);
 }
 

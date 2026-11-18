@@ -1261,7 +1261,7 @@ void MONOLITH_TOOL_UpdateHighlight(MonolithToolProcArgs *args, int slot)
     int level;
     highlight = &args->highlight[slot];
     if (slot >= 4) {
-        GF_PANIC_Fail(PM_LANG_JA(d_021BABE0, str_ja_021BAAA0), PM_SRC_LINE((int)0, 0x193), PM_LANG_JA(d_021BABE0, str_ja_021BAAB0));
+        GF_PANIC_Fail(PM_SRC_STR(d_021BABE0, str_ja_021BAAA0), PM_SRC_LINE((int)0, 0x193), PM_SRC_STR(d_021BABE0, str_ja_021BAAB0));
     }
     firstColor = MONOLITH_TOOL_GetHighlightColorA((int)slot);
     srcColor = MONOLITH_TOOL_GetHighlightColorB((int)slot);
@@ -1604,7 +1604,7 @@ void MONOLITH_TOOL_DrawSlotCounts(void *a, int flag, int bg)
     } else if (m > 0 && right == 0) {
         right++;
     }
-    buf = GFL_HEAP_Alloc(0x61, 0x3c, 1, PM_LANG_JA(d_021BABE4, str_ja_021BAAA0), 0x474);
+    buf = GFL_HEAP_Alloc(0x61, 0x3c, 1, PM_SRC_STR(d_021BABE4, str_ja_021BAAA0), 0x474);
     for (i = 0; right > 0; i++) {
         if (right >= 8) {
             buf[i] = 1;

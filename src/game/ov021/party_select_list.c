@@ -217,7 +217,7 @@ PartySelectList *PARTY_SELECT_LIST_Create(void *owner, void *firstParty, void *s
 
     if (firstParty == 0 || secondParty == 0)
         PARTY_SELECT_LIST_ASSERT_FAIL(0xD1, str_ja_021DE45C);
-    list = GFL_HEAP_Alloc(heapId, sizeof(*list), 1, PM_LANG_JA((char *)d_021DE5C0, str_ja_021DE448), 0xd3);
+    list = GFL_HEAP_Alloc(heapId, sizeof(*list), 1, PM_SRC_STR((char *)d_021DE5C0, str_ja_021DE448), 0xd3);
     list->owner = owner;
     list->party[0] = firstParty;
     list->party[1] = secondParty;

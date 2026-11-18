@@ -588,13 +588,13 @@ static inline void MbCommSys_LoadPayload(MbCommSysWork *p)
     name = GFL_USE_GetArcPath(142);
     FS_InitFile((FSFile *)&file);
     if (!FS_OpenFile((FSFile *)&file, (const char *)name))
-        GF_PANIC_Fail(PM_LANG_JA(d_021F6E08, str_ja_021F6CE0), PM_SRC_LINE(0, 0x28D), PM_LANG_JA(d_021F6E08, str_ja_021F6CF0));
+        GF_PANIC_Fail(PM_SRC_STR(d_021F6E08, str_ja_021F6CE0), PM_SRC_LINE(0, 0x28D), PM_SRC_STR(d_021F6E08, str_ja_021F6CF0));
     FS_SeekFile((FSFile *)&file, 0, 0);
     p->payloadSize = FS_GetLength((struct FSFile *)&file);
-    p->payload = GFL_HEAP_Alloc(p->heapId, p->payloadSize, 1, PM_LANG_JA(d_021F6E0C, str_ja_021F6CE0), PM_SRC_LINE(660, 0x290));
+    p->payload = GFL_HEAP_Alloc(p->heapId, p->payloadSize, 1, PM_SRC_STR(d_021F6E0C, str_ja_021F6CE0), PM_SRC_LINE(660, 0x290));
     FS_ReadFile((FSFile *)&file, (void *)p->payload, p->payloadSize);
     if (!FS_CloseFile((FSFile *)&file))
-        GF_PANIC_Fail(PM_LANG_JA(d_021F6E08, str_ja_021F6CE0), PM_SRC_LINE(0, 0x293), PM_LANG_JA(d_021F6E08, str_ja_021F6CF0));
+        GF_PANIC_Fail(PM_SRC_STR(d_021F6E08, str_ja_021F6CE0), PM_SRC_LINE(0, 0x293), PM_SRC_STR(d_021F6E08, str_ja_021F6CF0));
     p->phase = 13;
 }
 
@@ -1118,8 +1118,8 @@ void MB_COMM_SYS_BuildGameStrings(MbCommSysWork *p)
     ownerData = GAME_DATA_GetMyStatus(p->arg->gameData);
     p->subPhase = 0;
     p->recruitPhase = 0;
-    p->gameNameBuf = GFL_HEAP_Alloc(p->heapId, 0x60, 1, PM_LANG_JA(d_021F6E0C, str_ja_021F6CE0), PM_SRC_LINE(0x553, 0x54F));
-    p->gameIntroBuf = GFL_HEAP_Alloc(p->heapId, 0xC0, 1, PM_LANG_JA(d_021F6E0C, str_ja_021F6CE0), PM_SRC_LINE(0x554, 0x550));
+    p->gameNameBuf = GFL_HEAP_Alloc(p->heapId, 0x60, 1, PM_SRC_STR(d_021F6E0C, str_ja_021F6CE0), PM_SRC_LINE(0x553, 0x54F));
+    p->gameIntroBuf = GFL_HEAP_Alloc(p->heapId, 0xC0, 1, PM_SRC_STR(d_021F6E0C, str_ja_021F6CE0), PM_SRC_LINE(0x554, 0x550));
     MB_UTIL_MSG_SetWindowLayout(p->msg, 1);
     MB_UTIL_MSG_CreateWordSet(p->msg);
     MB_UTIL_MSG_SetNumberZeroPad(p->msg, 0, MYSTATUS_GetIdLow16(ownerData), 5);
@@ -1918,7 +1918,7 @@ int MB_COMM_SYS_ProcInit(void *task, void *arg, MbParentArg *argument)
     GFL_HEAP_CreateChildHeap(1, 93, 0x130000);
     p = PROCSYS_AllocProcWork(task, sizeof(*p), 93);
     if (!argument) {
-        argument = GFL_HEAP_Alloc(93, sizeof(*argument), 0, PM_LANG_JA(d_021F6E0C, str_ja_021F6CE0), PM_SRC_LINE(2788, 0xADF));
+        argument = GFL_HEAP_Alloc(93, sizeof(*argument), 0, PM_SRC_STR(d_021F6E0C, str_ja_021F6CE0), PM_SRC_LINE(2788, 0xADF));
         if (KEY_GetCont() & 256) {
             argument->standalone = 1;
         } else {
